@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cool Brothers HVAC - Professional heating, cooling, and ventilation services for residential and commercial properties. Emergency repairs available 24/7.">
+    <meta name="keywords" content="HVAC, heating, cooling, air conditioning, furnace repair, emergency HVAC, commercial HVAC">
+    <title>Cool Brothers HVAC - Professional Heating & Cooling Services</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="alternate icon" href="assets/images/favicon.svg">
+    
+    <!-- Preconnect for performance optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Load Configuration First -->
+    <script src="js/config.js"></script>
+    
+    <!-- Segment Analytics (Configuration-driven) -->
+    <script>
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.13.2";
+        
+        // Initialize analytics with configuration
+        window.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Initialize config first
+                if (typeof CoolBrothersConfig !== 'undefined') {
+                    window.AppConfig = new CoolBrothersConfig();
+                    const config = window.AppConfig.getAnalytics();
+                    if (config.enabled && config.segmentWriteKey && !config.segmentWriteKey.includes('paste_your_')) {
+                        analytics.load(config.segmentWriteKey);
+                        analytics.page();
+                        console.log('📊 Segment Analytics initialized');
+                    } else if (window.AppConfig.isDevelopment()) {
+                        console.warn('⚠️ Segment Analytics not initialized - please set SEGMENT_WRITE_KEY in config.js');
+                    }
+                } else {
+                    console.warn('⚠️ Configuration not loaded - check js/config.js');
+                }
+            } catch (error) {
+                console.error('⚠️ Analytics initialization failed:', error);
+            }
+        });
+        }}();
+    </script>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <!-- Header with navigation -->
+    <header class="header" role="banner">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="Main navigation">
+                <!-- Logo and company name -->
+                <div class="navbar__brand">
+                    <img src="assets/images/logo.svg" alt="Cool Brothers HVAC" class="logo" width="50" height="50">
+                    <span class="company-name">Cool Brothers HVAC</span>
+                </div>
+                
+                <!-- Mobile menu toggle button -->
+                <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="navbar__toggle-icon"></span>
+                    <span class="navbar__toggle-icon"></span>
+                    <span class="navbar__toggle-icon"></span>
+                </button>
+                
+                <!-- Navigation menu -->
+                <div class="navbar__menu" id="navbarMenu">
+                    <ul class="navbar__nav" role="menubar">
+                        <li class="navbar__item" role="none">
+                            <a href="index.html" class="navbar__link navbar__link--active" role="menuitem" aria-current="page">Home</a>
+                        </li>
+                        <li class="navbar__item" role="none">
+                            <a href="services.html" class="navbar__link" role="menuitem">Services</a>
+                        </li>
+                        <li class="navbar__item" role="none">
+                            <a href="about.html" class="navbar__link" role="menuitem">About</a>
+                        </li>
+                        <li class="navbar__item" role="none">
+                            <a href="contact.html" class="navbar__link" role="menuitem">Contact</a>
+                        </li>
+                        <!-- Emergency contact in header -->
+                        <li class="navbar__item navbar__item--emergency" role="none">
+                            <a href="#" class="btn btn--emergency" role="menuitem" id="headerEmergencyBtn">
+                                <span class="emergency-icon">🚨</span>
+                                <span class="emergency-text">Emergency: Loading...</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main content -->
+    <main id="main" class="main" role="main">
+        
+        <!-- Hero Section -->
+        <section class="hero" role="banner">
+            <div class="hero__background">
+                <img src="assets/images/hero-bg.jpg" alt="Professional HVAC technician working on air conditioning unit" class="hero__image">
+            </div>
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        Professional HVAC Services
+                        <span class="hero__subtitle">You Can Trust</span>
+                    </h1>
+                    <p class="hero__description">
+                        Expert heating, cooling, and ventilation solutions for residential and commercial properties. 
+                        Licensed, insured, and available 24/7 for emergency repairs.
+                    </p>
+                    
+                    <!-- Hero call-to-action buttons -->
+                    <div class="hero__actions">
+                        <a href="contact.html" class="btn btn--primary btn--large" onclick="ConfigUtils.trackEvent('CTA Clicked', {location: 'hero', action: 'get_estimate'})">
+                            Get Free Estimate
+                        </a>
+                        <a href="#" class="btn btn--secondary btn--large" id="heroPhoneBtn">
+                            <span class="phone-icon">📞</span>
+                            <span class="phone-text">Call Now: Loading...</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Trust indicators -->
+                    <div class="hero__badges">
+                        <div class="trust-badge">
+                            <span class="trust-badge__icon">✓</span>
+                            <span class="trust-badge__text">Licensed & Insured</span>
+                        </div>
+                        <div class="trust-badge">
+                            <span class="trust-badge__icon">⭐</span>
+                            <span class="trust-badge__text">5-Star Reviews</span>
+                        </div>
+                        <div class="trust-badge">
+                            <span class="trust-badge__icon">🔧</span>
+                            <span class="trust-badge__text">20+ Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Overview Section -->
+        <section class="services-overview" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Professional Services</h2>
+                    <p class="section-description">
+                        Comprehensive HVAC solutions to keep your property comfortable year-round
+                    </p>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Air Conditioning Service -->
+                    <article class="service-card" role="region" aria-labelledby="ac-service-title">
+                        <div class="service-card__icon">
+                            ❄️
+                        </div>
+                        <h3 class="service-card__title" id="ac-service-title">Air Conditioning</h3>
+                        <p class="service-card__description">
+                            Professional AC installation, repair, and maintenance. Keep your space cool and comfortable with our expert cooling solutions.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>✓ Emergency AC Repair</li>
+                            <li>✓ System Installation</li>
+                            <li>✓ Preventive Maintenance</li>
+                            <li>✓ Energy Efficiency Upgrades</li>
+                        </ul>
+                        <div class="service-card__actions">
+                            <a href="services.html#air-conditioning" class="btn btn--outline">Learn More</a>
+                            <span class="service-card__price">Starting at $89</span>
+                        </div>
+                    </article>
+                    
+                    <!-- Heating Service -->
+                    <article class="service-card" role="region" aria-labelledby="heating-service-title">
+                        <div class="service-card__icon">
+                            🔥
+                        </div>
+                        <h3 class="service-card__title" id="heating-service-title">Heating Systems</h3>
+                        <p class="service-card__description">
+                            Reliable heating solutions including furnace repair, boiler service, and heat pump installation for optimal winter comfort.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>✓ Furnace Repair & Service</li>
+                            <li>✓ Boiler Maintenance</li>
+                            <li>✓ Heat Pump Installation</li>
+                            <li>✓ Ductwork Services</li>
+                        </ul>
+                        <div class="service-card__actions">
+                            <a href="services.html#heating" class="btn btn--outline">Learn More</a>
+                            <span class="service-card__price">Starting at $95</span>
+                        </div>
+                    </article>
+                    
+                    <!-- Maintenance Service -->
+                    <article class="service-card" role="region" aria-labelledby="maintenance-service-title">
+                        <div class="service-card__icon">
+                            🔧
+                        </div>
+                        <h3 class="service-card__title" id="maintenance-service-title">Maintenance Plans</h3>
+                        <p class="service-card__description">
+                            Comprehensive maintenance programs to extend equipment life, improve efficiency, and prevent costly breakdowns.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>✓ Seasonal Tune-ups</li>
+                            <li>✓ Filter Replacement</li>
+                            <li>✓ System Cleaning</li>
+                            <li>✓ Priority Service</li>
+                        </ul>
+                        <div class="service-card__actions">
+                            <a href="services.html#maintenance" class="btn btn--outline">Learn More</a>
+                            <span class="service-card__price">From $12/month</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose Cool Brothers HVAC?</h2>
+                    <p class="section-description">
+                        Over two decades of excellence in HVAC services
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature__icon">⏰</div>
+                        <h3 class="feature__title">24/7 Emergency Service</h3>
+                        <p class="feature__description">
+                            HVAC emergencies don't wait for business hours. Our emergency team is available around the clock.
+                        </p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature__icon">👨‍🔧</div>
+                        <h3 class="feature__title">Certified Technicians</h3>
+                        <p class="feature__description">
+                            All our technicians are licensed, certified, and continuously trained on the latest HVAC technologies.
+                        </p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature__icon">💰</div>
+                        <h3 class="feature__title">Transparent Pricing</h3>
+                        <p class="feature__description">
+                            No hidden fees or surprise charges. We provide clear, upfront pricing before any work begins.
+                        </p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature__icon">🛡️</div>
+                        <h3 class="feature__title">Satisfaction Guarantee</h3>
+                        <p class="feature__description">
+                            We stand behind our work with comprehensive warranties and a 100% satisfaction guarantee.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section (will be enhanced with JavaScript) -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Our Customers Say</h2>
+                    <p class="section-description">
+                        Real reviews from satisfied customers
+                    </p>
+                </div>
+                
+                <div class="testimonials-container" id="testimonialsContainer">
+                    <!-- Testimonials will be loaded via JavaScript -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-card__rating">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <blockquote class="testimonial-card__quote">
+                            "Excellent service! They arrived on time, diagnosed the problem quickly, and had our AC running perfectly within an hour. Highly recommend Cool Brothers HVAC."
+                        </blockquote>
+                        <cite class="testimonial-card__author">
+                            <strong>Sarah Johnson</strong>
+                            <span>Residential Customer</span>
+                        </cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready for Professional HVAC Service?</h2>
+                    <p class="cta-description">
+                        Get a free estimate today or call for emergency service. Our expert team is ready to help.
+                    </p>
+                    <div class="cta-actions">
+                        <a href="contact.html" class="btn btn--primary btn--large" onclick="ConfigUtils.trackEvent('CTA Clicked', {location: 'bottom_cta', action: 'get_estimate'})">
+                            Get Free Estimate
+                        </a>
+                        <a href="#" class="btn btn--white btn--large" id="ctaEmergencyBtn">
+                            <span class="emergency-text">Emergency: Loading...</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <!-- Company Information -->
+                <div class="footer__section">
+                    <div class="footer__brand">
+                        <img src="assets/images/logo.svg" alt="Cool Brothers HVAC" class="footer__logo" width="40" height="40">
+                        <span class="footer__company-name">Cool Brothers HVAC</span>
+                    </div>
+                    <p class="footer__description">
+                        Professional heating, cooling, and ventilation services for residential and commercial properties.
+                    </p>
+                    <div class="footer__social">
+                        <!-- Social media links would go here -->
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="footer__section">
+                    <h3 class="footer__title">Quick Links</h3>
+                    <nav class="footer__nav" role="navigation" aria-label="Footer navigation">
+                        <ul class="footer__nav-list">
+                            <li><a href="index.html" class="footer__link">Home</a></li>
+                            <li><a href="services.html" class="footer__link">Services</a></li>
+                            <li><a href="about.html" class="footer__link">About Us</a></li>
+                            <li><a href="contact.html" class="footer__link">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Services -->
+                <div class="footer__section">
+                    <h3 class="footer__title">Our Services</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="services.html#air-conditioning" class="footer__link">Air Conditioning</a></li>
+                        <li><a href="services.html#heating" class="footer__link">Heating Systems</a></li>
+                        <li><a href="services.html#maintenance" class="footer__link">Maintenance Plans</a></li>
+                        <li><a href="services.html#emergency" class="footer__link">Emergency Repairs</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="footer__section">
+                    <h3 class="footer__title">Contact Info</h3>
+                    <div class="footer__contact">
+                        <div class="contact-item">
+                            <span class="contact-item__icon">📞</span>
+                            <a href="#" class="contact-item__text" id="footerPhoneLink">Loading...</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item__icon">✉️</span>
+                            <a href="#" class="contact-item__text" id="footerEmailLink">Loading...</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item__icon">📍</span>
+                            <span class="contact-item__text" id="footerAddress">Loading...</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item__icon">🕒</span>
+                            <span class="contact-item__text">24/7 Emergency Service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <div class="footer__copyright">
+                    <p>&copy; 2026 Cool Brothers HVAC. All rights reserved.</p>
+                </div>
+                <div class="footer__legal">
+                    <a href="#" class="footer__legal-link">Privacy Policy</a>
+                    <a href="#" class="footer__legal-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript files -->
+    <script src="js/main.js"></script>
+    
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Cool Brothers HVAC",
+        "image": "https://coolbrothershvac.com/assets/images/logo.svg",
+        "description": "Professional heating, cooling, and ventilation services for residential and commercial properties.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Main St",
+            "addressLocality": "Springfield",
+            "addressRegion": "USA"
+        },
+        "telephone": "+15551234567",
+        "email": "info@coolbrothershvac.com",
+        "url": "https://coolbrothershvac.com",
+        "openingHours": "Mo-Su 00:00-23:59",
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "40.7128",
+                "longitude": "-74.0060"
+            },
+            "geoRadius": "50000"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "127"
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+# Environment and Configuration Files
+.env
+.env.local
+.env.production
+.env.staging
+
+# API Keys and Secrets
+config.local.js
+secrets.js
+
+# Node.js Dependencies (if added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build Output
+dist/
+build/
+.cache/
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Runtime Data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary Files
+tmp/
+temp/
+
+# Analytics and Tracking (for development)
+analytics-debug.log
+
+# Backup Files
+*.backup
+*.bak
+*.orig
+
+# Local Development
+.local/
+.dev/

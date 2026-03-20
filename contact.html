@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Cool Brothers HVAC - Get your free estimate, schedule service, or reach our 24/7 emergency line for immediate HVAC assistance.">
+    <meta name="keywords" content="HVAC contact, emergency HVAC service, free estimate, schedule HVAC service">
+    <title>Contact Us - Cool Brothers HVAC</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Load Configuration First -->
+    <script src="js/config.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header class="header" role="banner">
+        <div class="container">
+            <nav class="navbar" role="navigation" aria-label="Main navigation">
+                <!-- Logo and company name -->
+                <div class="navbar__brand">
+                    <img src="assets/images/logo.svg" alt="Cool Brothers HVAC" class="logo" width="50" height="50">
+                    <span class="company-name">Cool Brothers HVAC</span>
+                </div>
+                
+                <!-- Mobile menu toggle button -->
+                <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="navbar__toggle-icon"></span>
+                    <span class="navbar__toggle-icon"></span>
+                    <span class="navbar__toggle-icon"></span>
+                </button>
+                
+                <!-- Navigation menu -->
+                <div class="navbar__menu" id="navbarMenu">
+                    <ul class="navbar__nav" role="menubar">
+                        <li class="navbar__item" role="none">
+                            <a href="index.html" class="navbar__link" role="menuitem">Home</a>
+                        </li>
+                        <li class="navbar__item" role="none">
+                            <a href="services.html" class="navbar__link" role="menuitem">Services</a>
+                        </li>
+                        <li class="navbar__item" role="none">
+                            <a href="about.html" class="navbar__link" role="menuitem">About</a>
+                        </li>
+                        <li class="navbar__item" role="none">
+                            <a href="contact.html" class="navbar__link navbar__link--active" role="menuitem" aria-current="page">Contact</a>
+                        </li>
+                        <!-- Emergency contact in header -->
+                        <li class="navbar__item navbar__item--emergency" role="none">
+                            <a href="#" class="btn btn--emergency" role="menuitem" id="headerEmergencyBtn">
+                                <span class="emergency-icon">🚨</span>
+                                <span class="emergency-text">Emergency: Loading...</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main content -->
+    <main id="main" class="main" role="main">
+        
+        <!-- Contact Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        Get In
+                        <span class="hero__subtitle">Touch</span>
+                    </h1>
+                    <p class="hero__description">
+                        Ready for professional HVAC service? Contact us for a free estimate, schedule maintenance, 
+                        or reach our 24/7 emergency line for immediate assistance.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Emergency Contact Banner -->
+        <section class="emergency-banner" style="background-color: var(--color-emergency); color: white; padding: var(--space-6) 0;">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold mb-2">🚨 HVAC Emergency?</h2>
+                    <p class="mb-4 text-lg">Our certified technicians are available 24/7 for emergency repairs</p>
+                    <a href="#" class="btn btn--white btn--large" id="emergencyMainBtn">
+                        <span class="emergency-text">Call Emergency Line: Loading...</span>
+                    </a>
+                    <p class="text-sm mt-3 opacity-90">No extra charge for emergency calls - Standard rates apply</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Methods -->
+        <section class="section">
+            <div class="container">
+                <div class="grid md:grid-cols-2 gap-12">
+                    
+                    <!-- Contact Form -->
+                    <div>
+                        <div class="section-header text-left">
+                            <h2 class="section-title text-left">Get Your Free Estimate</h2>
+                            <p class="section-description text-left">
+                                Fill out the form below and we'll get back to you within 2 hours during business hours.
+                            </p>
+                        </div>
+                        
+                        <form id="contactForm" class="space-y-6">
+                            <!-- Name -->
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                <input type="text" id="name" name="name" required
+                                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                                       placeholder="Enter your full name">
+                                <div class="error-message" id="nameError"></div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required
+                                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                                       placeholder="Enter your email address">
+                                <div class="error-message" id="emailError"></div>
+                            </div>
+                            
+                            <!-- Phone -->
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required
+                                       class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                                       placeholder="(555) 123-4567">
+                                <div class="error-message" id="phoneError"></div>
+                            </div>
+                            
+                            <!-- Service Type -->
+                            <div>
+                                <label for="serviceType" class="block text-sm font-medium text-gray-700 mb-2">Service Needed</label>
+                                <select id="serviceType" name="serviceType"
+                                        class="form-select w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                    <option value="">Select a service...</option>
+                                    <option value="air-conditioning">Air Conditioning</option>
+                                    <option value="heating">Heating</option>
+                                    <option value="maintenance">Maintenance</option>
+                                    <option value="installation">New Installation</option>
+                                    <option value="emergency">Emergency Repair</option>
+                                    <option value="commercial">Commercial Service</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Property Type -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                                <div class="flex gap-4">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="propertyType" value="residential" class="text-primary-600 focus:ring-primary-500" checked>
+                                        <span class="ml-2">Residential</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="propertyType" value="commercial" class="text-primary-600 focus:ring-primary-500">
+                                        <span class="ml-2">Commercial</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Preferred Contact Time -->
+                            <div>
+                                <label for="preferredTime" class="block text-sm font-medium text-gray-700 mb-2">Preferred Contact Time</label>
+                                <select id="preferredTime" name="preferredTime"
+                                        class="form-select w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                    <option value="">Any time</option>
+                                    <option value="morning">Morning (8 AM - 12 PM)</option>
+                                    <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                                    <option value="evening">Evening (5 PM - 8 PM)</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Message -->
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Tell us about your needs</label>
+                                <textarea id="message" name="message" rows="4"
+                                          class="form-textarea w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-y"
+                                          placeholder="Describe your HVAC needs, any symptoms you've noticed, or specific questions you have..."></textarea>
+                            </div>
+                            
+                            <!-- Marketing Consent -->
+                            <div>
+                                <label class="flex items-start">
+                                    <input type="checkbox" name="marketingConsent" class="text-primary-600 focus:ring-primary-500 mt-1">
+                                    <span class="ml-2 text-sm text-gray-600">
+                                        I'd like to receive helpful HVAC tips and seasonal maintenance reminders via email.
+                                        <span class="text-xs">(Optional - you can unsubscribe anytime)</span>
+                                    </span>
+                                </label>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="pt-4">
+                                <button type="submit" class="btn btn--primary btn--large btn--full">
+                                    <span id="submitText">Get My Free Estimate</span>
+                                    <span id="submitLoader" class="hidden animate-spin">⟳</span>
+                                </button>
+                                <p class="text-xs text-gray-500 mt-2 text-center">
+                                    By submitting this form, you agree to our Terms of Service and Privacy Policy.
+                                </p>
+                            </div>
+                        </form>
+                        
+                        <!-- Form Success Message -->
+                        <div id="formSuccess" class="hidden bg-green-50 border border-green-200 rounded-lg p-6 mt-6">
+                            <div class="flex items-center">
+                                <span class="text-green-600 text-2xl mr-3">✅</span>
+                                <div>
+                                    <h3 class="text-green-800 font-semibold">Thank you for contacting us!</h3>
+                                    <p class="text-green-700">We'll get back to you within 2 hours during business hours.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div>
+                        <div class="section-header text-left">
+                            <h2 class="section-title text-left">Other Ways to Reach Us</h2>
+                            <p class="section-description text-left">
+                                Prefer to call or visit? Here are all the ways to get in touch with Cool Brothers HVAC.
+                            </p>
+                        </div>
+                        
+                        <!-- Contact Cards -->
+                        <div class="space-y-6">
+                            <!-- Phone Contact -->
+                            <div class="card">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-3xl">📞</div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold mb-2">Phone</h3>
+                                        <p class="text-gray-600 mb-3">Speak directly with our team</p>
+                                        <div class="space-y-2">
+                                            <div>
+                                                <strong>General Service:</strong>
+                                                <a href="#" class="block text-primary-600 hover:text-primary-700" id="contactPhoneMain">Loading...</a>
+                                            </div>
+                                            <div>
+                                                <strong>24/7 Emergency:</strong>
+                                                <a href="#" class="block text-red-600 hover:text-red-700 font-medium" id="contactPhoneEmergency">Loading...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Email Contact -->
+                            <div class="card">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-3xl">✉️</div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold mb-2">Email</h3>
+                                        <p class="text-gray-600 mb-3">Send us a message anytime</p>
+                                        <div>
+                                            <strong>General Inquiries:</strong>
+                                            <a href="#" class="block text-primary-600 hover:text-primary-700" id="contactEmailMain">Loading...</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Business Hours -->
+                            <div class="card">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-3xl">🕒</div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold mb-2">Business Hours</h3>
+                                        <div class="space-y-1 text-gray-700">
+                                            <div class="flex justify-between">
+                                                <span>Monday - Friday:</span>
+                                                <span>8:00 AM - 6:00 PM</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Saturday:</span>
+                                                <span>9:00 AM - 4:00 PM</span>
+                                            </div>
+                                            <div class="flex justify-between">
+                                                <span>Sunday:</span>
+                                                <span>Emergency Only</span>
+                                            </div>
+                                            <div class="mt-3 p-3 bg-red-50 rounded">
+                                                <strong class="text-red-800">24/7 Emergency Service Available</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Service Area -->
+                            <div class="card">
+                                <div class="flex items-start gap-4">
+                                    <div class="text-3xl">📍</div>
+                                    <div class="flex-1">
+                                        <h3 class="text-lg font-semibold mb-2">Service Area</h3>
+                                        <p class="text-gray-600 mb-3">We proudly serve the greater metropolitan area</p>
+                                        <div class="space-y-1 text-gray-700">
+                                            <div><strong>Headquarters:</strong></div>
+                                            <div id="contactAddress">Loading...</div>
+                                            <div class="mt-2"><strong>Service Radius:</strong> 50 miles</div>
+                                            <div class="text-sm text-gray-600 mt-2">
+                                                Not sure if we service your area? <a href="#" class="text-primary-600 hover:text-primary-700">Call to check!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section class="section bg-gray-50">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-description">
+                        Quick answers to common questions about our HVAC services
+                    </p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="space-y-4">
+                        <!-- FAQ Item -->
+                        <div class="bg-white rounded-lg border border-gray-200">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50">
+                                <span class="font-semibold">Do you provide free estimates?</span>
+                                <span class="faq-icon transition-transform">+</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-4">
+                                <p class="text-gray-700">Yes! We provide completely free estimates for all new installations, system replacements, and major repairs. Our estimates include detailed pricing, equipment recommendations, and no hidden fees.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item -->
+                        <div class="bg-white rounded-lg border border-gray-200">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50">
+                                <span class="font-semibold">How quickly can you respond to emergencies?</span>
+                                <span class="faq-icon transition-transform">+</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-4">
+                                <p class="text-gray-700">We typically respond to emergency calls within 1-2 hours, 24/7. Our emergency service covers heating failures, AC breakdowns, gas leaks, and other urgent HVAC issues.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item -->
+                        <div class="bg-white rounded-lg border border-gray-200">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50">
+                                <span class="font-semibold">What payment methods do you accept?</span>
+                                <span class="faq-icon transition-transform">+</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-4">
+                                <p class="text-gray-700">We accept cash, check, all major credit cards, and offer financing options for larger projects. Ask about our 0% financing for qualified customers.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item -->
+                        <div class="bg-white rounded-lg border border-gray-200">
+                            <button class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50">
+                                <span class="font-semibold">Do you offer warranties on your work?</span>
+                                <span class="faq-icon transition-transform">+</span>
+                            </button>
+                            <div class="faq-answer hidden px-6 pb-4">
+                                <p class="text-gray-700">Yes! We provide a 1-year warranty on all repair work and up to 10 years on new equipment installations. Manufacturer warranties also apply to all equipment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <!-- Company Information -->
+                <div class="footer__section">
+                    <div class="footer__brand">
+                        <img src="assets/images/logo.svg" alt="Cool Brothers HVAC" class="footer__logo" width="40" height="40">
+                        <span class="footer__company-name">Cool Brothers HVAC</span>
+                    </div>
+                    <p class="footer__description">
+                        Professional heating, cooling, and ventilation services for residential and commercial properties.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="footer__section">
+                    <h3 class="footer__title">Quick Links</h3>
+                    <nav class="footer__nav" role="navigation" aria-label="Footer navigation">
+                        <ul class="footer__nav-list">
+                            <li><a href="index.html" class="footer__link">Home</a></li>
+                            <li><a href="services.html" class="footer__link">Services</a></li>
+                            <li><a href="about.html" class="footer__link">About Us</a></li>
+                            <li><a href="contact.html" class="footer__link">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Services -->
+                <div class="footer__section">
+                    <h3 class="footer__title">Our Services</h3>
+                    <ul class="footer__nav-list">
+                        <li><a href="services.html#air-conditioning" class="footer__link">Air Conditioning</a></li>
+                        <li><a href="services.html#heating" class="footer__link">Heating Systems</a></li>
+                        <li><a href="services.html#maintenance" class="footer__link">Maintenance Plans</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="footer__section">
+                    <h3 class="footer__title">Contact Info</h3>
+                    <div class="footer__contact">
+                        <div class="contact-item">
+                            <span class="contact-item__icon">📞</span>
+                            <a href="#" class="contact-item__text" id="footerPhoneLink">Loading...</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item__icon">✉️</span>
+                            <a href="#" class="contact-item__text" id="footerEmailLink">Loading...</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item__icon">📍</span>
+                            <span class="contact-item__text" id="footerAddress">Loading...</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-item__icon">🕒</span>
+                            <span class="contact-item__text">24/7 Emergency Service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer__bottom">
+                <div class="footer__copyright">
+                    <p>&copy; 2026 Cool Brothers HVAC. All rights reserved.</p>
+                </div>
+                <div class="footer__legal">
+                    <a href="#" class="footer__legal-link">Privacy Policy</a>
+                    <a href="#" class="footer__legal-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript files -->
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

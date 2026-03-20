@@ -1,0 +1,38 @@
+<svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="25" cy="25" r="24" fill="url(#logoGradient)" stroke="#ffffff" stroke-width="2"/>
+  
+  <!-- HVAC Symbol - Snowflake and Flame Combined -->
+  <!-- Cooling (Snowflake) - Top half -->
+  <g transform="translate(25, 15)">
+    <!-- Center circle -->
+    <circle cx="0" cy="0" r="2" fill="white"/>
+    <!-- Snowflake arms -->
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="0" y1="-8" x2="0" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-6" y1="-6" x2="6" y2="6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-6" y1="6" x2="6" y2="-6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <!-- Small decorative branches -->
+    <path d="M-6,0 L-4,-2 M-6,0 L-4,2" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+    <path d="M6,0 L4,-2 M6,0 L4,2" stroke="white" stroke-width="1" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Heating (Flame) - Bottom half -->
+  <g transform="translate(25, 35)">
+    <path d="M0,-8 C-3,-6 -4,-3 -2,0 C-3,2 -1,4 2,3 C4,5 6,2 4,-1 C6,-3 4,-6 0,-8 Z" 
+          fill="white" opacity="0.9"/>
+    <path d="M0,-6 C-1.5,-5 -2,-3 -1,-1 C-1.5,1 0,2 1.5,1.5 C2.5,2.5 3.5,1 2.5,-0.5 C3.5,-2 2,-4.5 0,-6 Z" 
+          fill="white" opacity="0.7"/>
+  </g>
+  
+  <!-- Company initials -->
+  <text x="25" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">CB</text>
+</svg>
