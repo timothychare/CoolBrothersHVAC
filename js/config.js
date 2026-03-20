@@ -23,7 +23,7 @@ class Config {
         // Default configuration - replace with your actual values
         return {
             // Analytics Configuration
-            SEGMENT_WRITE_KEY: 'paste_your_segment_key_here',
+            SEGMENT_WRITE_KEY: 'bXrzP5qFCY08wrAiox4tuiKmRUQiWQme', // Replace with your actual Segment write key
             GOOGLE_ANALYTICS_ID: 'UA-XXXXXXXXX-X',
 
             // API Keys (client-safe only)
@@ -222,16 +222,21 @@ window.ConfigUtils = {
      * @param {Object} properties - Event properties
      */
     trackEvent(event, properties = {}) {
-        const analytics = window.AppConfig.getAnalytics();
-        if (analytics.enabled && typeof window.analytics !== 'undefined') {
-            window.analytics.track(event, {
-                ...properties,
-                timestamp: new Date().toISOString(),
-                page: window.location.pathname,
-                business: window.AppConfig.get('BUSINESS_NAME')
-            });
-        } else if (window.AppConfig.isDevelopment()) {
-            console.log('📊 Analytics Event:', event, properties);
+        // Use new Analytics manager if available, otherwise fallback to direct analytics
+        if (window.Analytics && window.Analytics.track) {
+            window.Analytics.track(event, properties);
+        } else {
+            const analytics = window.AppConfig.getAnalytics();
+            if (analytics.enabled && typeof window.analytics !== 'undefined') {
+                window.analytics.track(event, {
+                    ...properties,
+                    timestamp: new Date().toISOString(),
+                    page: window.location.pathname,
+                    business: window.AppConfig.get('BUSINESS_NAME')
+                });
+            } else if (window.AppConfig.isDevelopment()) {
+                console.log('📊 Analytics Event:', event, properties);
+            }
         }
     },
 
@@ -253,6 +258,33 @@ window.ConfigUtils = {
     getPhoneRaw(type = 'business') {
         const business = window.AppConfig.getBusiness();
         return type === 'emergency' ? business.emergencyPhoneRaw : business.phoneRaw;
+    },
+
+    /**
+     * Track specific HVAC business events using the analytics manager
+     * @param {string} eventType - Type of event (service_inquiry, emergency_call, etc.)
+     * @param {Object} properties - Additional event properties
+     */
+    trackHVACEvent(eventType, properties = {}) {
+        if (window.Analytics && window.Analytics.trackHVACEvent) {
+            window.Analytics.trackHVACEvent(eventType, properties);
+        } else {
+            // Fallback to regular event tracking
+            this.trackEvent(eventType, properties);
+        }
+    },
+
+    /**
+     * Track page views with enhanced data
+     * @param {string} pageName - Name of the page
+     * @param {Object} properties - Additional page properties
+     */
+    trackPageView(pageName, properties = {}) {
+        if (window.Analytics && window.Analytics.page) {
+            window.Analytics.page(pageName, properties);
+        } else if (window.analytics && window.analytics.page) {
+            window.analytics.page(pageName, properties);
+        }
     }
 };
 
