@@ -2,23 +2,18 @@
  * Cool Brothers HVAC - Main JavaScript File
  * 
  * This file contains the main functionality for the website including:
- * - Dynamic content population from configuration
- * - Event tracking and analytics 
  * - Navigation and UI interactions
  * - Smooth scrolling and animations
  */
 
 class CoolBrothersApp {
     constructor() {
-        this.config = null;
         this.isInitialized = false;
         
         // Bind methods to maintain context
         this.init = this.init.bind(this);
-        this.populateContent = this.populateContent.bind(this);
         this.setupEventListeners = this.setupEventListeners.bind(this);
         this.setupNavigation = this.setupNavigation.bind(this);
-        this.setupAnalytics = this.setupAnalytics.bind(this);
     }
 
     /**
@@ -28,21 +23,11 @@ class CoolBrothersApp {
         if (this.isInitialized) return;
 
         try {
-            // Wait for config to be available
-            if (typeof window.AppConfig === 'undefined') {
-                console.warn('Configuration not loaded yet, retrying...');
-                setTimeout(this.init, 100);
-                return;
-            }
-
-            this.config = window.AppConfig;
             this.isInitialized = true;
 
             // Initialize all components
-            this.populateContent();
             this.setupEventListeners();
             this.setupNavigation();
-            this.setupAnalytics();
             this.setupTestimonials();
 
             console.log('✅ Cool Brothers HVAC app initialized successfully');
@@ -50,105 +35,6 @@ class CoolBrothersApp {
             console.error('❌ Error initializing app:', error);
         }
     }
-
-    /**
-     * Populate dynamic content from configuration
-     */
-    populateContent() {
-        const business = this.config.getBusiness();
-        
-        try {
-            // Update page title
-            document.title = `${business.name} - Professional Heating & Cooling Services`;
-            
-            // Update meta description
-            const metaDesc = document.querySelector('meta[name=\"description\"]');
-            if (metaDesc) {
-                metaDesc.content = `${business.name} - Professional heating, cooling, and ventilation services for residential and commercial properties. Emergency repairs available 24/7.`;
-            }
-
-            // Company name elements
-            const companyNameElements = document.querySelectorAll('.company-name, .footer__company-name, [data-business-name]');
-            companyNameElements.forEach(el => el.textContent = business.name);
-
-            // Phone number elements
-            this.updatePhoneElements(business);
-            
-            // Email elements
-            this.updateEmailElements(business);
-            
-            // Address elements
-            this.updateAddressElements(business);
-            
-            // Logo elements (alt text)
-            const logoElements = document.querySelectorAll('img[alt*=\"ProComfort\"], img[alt*=\"Cool Brothers\"]');
-            logoElements.forEach(el => el.alt = business.name);
-
-            console.log('📝 Content populated successfully');
-        } catch (error) {
-            console.error('❌ Error populating content:', error);
-        }
-    }
-
-    /**
-     * Update phone number elements with tracking
-     */
-    updatePhoneElements(business) {
-        // Hero phone button
-        const heroPhoneBtn = document.getElementById('heroPhoneBtn');
-        if (heroPhoneBtn) {
-            heroPhoneBtn.href = `tel:${business.phoneRaw}`;
-            heroPhoneBtn.querySelector('.phone-text').textContent = `Call Now: ${business.phone}`;
-            heroPhoneBtn.onclick = (e) => this.trackPhoneCall('hero', business.phone);
-        }
-
-        // Header emergency button
-        const headerEmergencyBtn = document.getElementById('headerEmergencyBtn');
-        if (headerEmergencyBtn) {
-            headerEmergencyBtn.href = `tel:${business.emergencyPhoneRaw}`;
-            headerEmergencyBtn.querySelector('.emergency-text').textContent = `Emergency: ${business.emergencyPhone}`;
-            headerEmergencyBtn.onclick = (e) => this.trackPhoneCall('header', business.emergencyPhone, 'emergency');
-        }
-
-        // CTA emergency button
-        const ctaEmergencyBtn = document.getElementById('ctaEmergencyBtn');
-        if (ctaEmergencyBtn) {
-            ctaEmergencyBtn.href = `tel:${business.emergencyPhoneRaw}`;
-            ctaEmergencyBtn.querySelector('.emergency-text').textContent = `Emergency: ${business.emergencyPhone}`;
-            ctaEmergencyBtn.onclick = (e) => this.trackPhoneCall('bottom_cta', business.emergencyPhone, 'emergency');
-        }
-
-        // Footer phone link
-        const footerPhoneLink = document.getElementById('footerPhoneLink');
-        if (footerPhoneLink) {
-            footerPhoneLink.href = `tel:${business.phoneRaw}`;
-            footerPhoneLink.textContent = business.phone;
-            footerPhoneLink.onclick = (e) => this.trackPhoneCall('footer', business.phone);
-        }
-    }
-
-    /**
-     * Update email elements with tracking
-     */
-    updateEmailElements(business) {
-        const footerEmailLink = document.getElementById('footerEmailLink');
-        if (footerEmailLink) {
-            footerEmailLink.href = `mailto:${business.email}`;
-            footerEmailLink.textContent = business.email;
-            footerEmailLink.onclick = (e) => this.trackEmailClick(business.email, 'footer');
-        }
-    }
-
-    /**
-     * Update address elements
-     */
-    updateAddressElements(business) {
-        const footerAddress = document.getElementById('footerAddress');
-        if (footerAddress) {
-            footerAddress.textContent = business.address;
-        }
-    }
-
     /**
      * Setup event listeners for UI interactions
      */
@@ -162,12 +48,6 @@ class CoolBrothersApp {
                 const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
                 navToggle.setAttribute('aria-expanded', !isExpanded);
                 navMenu.classList.toggle('navbar__menu--active');
-                
-                // Track menu interaction
-                ConfigUtils.trackEvent('Menu Interaction', {
-                    action: isExpanded ? 'close' : 'open',
-                    device: 'mobile'
-                });
             });
         }
 
@@ -175,14 +55,11 @@ class CoolBrothersApp {
         const serviceCards = document.querySelectorAll('.service-card');
         serviceCards.forEach(card => {
             card.addEventListener('mouseenter', () => {
-                ConfigUtils.trackEvent('Service Card Hovered', {
-                    service: card.querySelector('.service-card__title')?.textContent
-                });
+                // Add hover effects here if needed
             });
         });
 
-        // Scroll tracking for engagement
-        this.setupScrollTracking();
+        // Scroll tracking for engagement (removed)
     }
 
     /**
@@ -202,43 +79,12 @@ class CoolBrothersApp {
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    
-                    // Track navigation
-                    ConfigUtils.trackEvent('Internal Navigation', {
-                        target: targetId,
-                        source: 'smooth_scroll'
-                    });
                 }
             });
         });
 
         // Active navigation highlighting
         this.setupActiveNavigation();
-    }
-
-    /**
-     * Setup analytics tracking
-     */
-    setupAnalytics() {
-        // Track page load completion
-        window.addEventListener('load', () => {
-            ConfigUtils.trackEvent('Page Loaded', {
-                loadTime: performance.now(),
-                userAgent: navigator.userAgent,
-                viewport: `${window.innerWidth}x${window.innerHeight}`
-            });
-        });
-
-        // Track outbound links
-        const outboundLinks = document.querySelectorAll('a[href^=\"http\"]:not([href*=\"coolbrothershvac.com\"])');
-        outboundLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                ConfigUtils.trackEvent('Outbound Link Clicked', {
-                    url: link.href,
-                    text: link.textContent
-                });
-            });
-        });
     }
 
     /**
@@ -304,37 +150,7 @@ class CoolBrothersApp {
             cards[currentIndex].classList.remove('testimonial-card--active');
             currentIndex = (currentIndex + 1) % testimonials.length;
             cards[currentIndex].classList.add('testimonial-card--active');
-            
-            // Track testimonial view
-            ConfigUtils.trackEvent('Testimonial Viewed', {
-                author: testimonials[currentIndex].author,
-                index: currentIndex
-            });
         }, 5000);
-    }
-
-    /**
-     * Setup scroll tracking for engagement metrics
-     */
-    setupScrollTracking() {
-        let scrollDepth = 0;
-        const milestones = [25, 50, 75, 90];
-        
-        window.addEventListener('scroll', () => {
-            const scrollPercent = Math.round(
-                (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
-            );
-            
-            milestones.forEach(milestone => {
-                if (scrollPercent >= milestone && scrollDepth < milestone) {
-                    scrollDepth = milestone;
-                    ConfigUtils.trackEvent('Scroll Depth', {
-                        depth: milestone,
-                        page: window.location.pathname
-                    });
-                }
-            });
-        });
     }
 
     /**
@@ -361,29 +177,6 @@ class CoolBrothersApp {
         }, { threshold: 0.3 });
 
         sections.forEach(section => observer.observe(section));
-    }
-
-    /**
-     * Track phone call events 
-     */
-    trackPhoneCall(location, phone, type = 'general') {
-        ConfigUtils.trackEvent('Phone Call Initiated', {
-            location,
-            phone,
-            type,
-            timestamp: new Date().toISOString()
-        });
-    }
-
-    /**
-     * Track email click events
-     */
-    trackEmailClick(email, location) {
-        ConfigUtils.trackEvent('Email Clicked', {
-            email,
-            location,
-            timestamp: new Date().toISOString()
-        });
     }
 }
 

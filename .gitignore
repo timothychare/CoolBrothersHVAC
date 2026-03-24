@@ -49,8 +49,7 @@ pids/
 tmp/
 temp/
 
-# Analytics and Tracking (for development)
-analytics-debug.log
+
 
 # Backup Files
 *.backup

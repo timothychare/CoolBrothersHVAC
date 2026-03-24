@@ -4,7 +4,6 @@
  * This file handles:
  * - Contact form validation and submission
  * - FAQ accordion functionality
- * - Contact page specific analytics tracking
  */
 
 class ContactForm {
@@ -26,7 +25,7 @@ class ContactForm {
         
         this.setupEventListeners();
         this.setupFAQ();
-        this.setupContactPageElements();
+        // Set up contact page-specific functionality (removed dynamic content population)        
         console.log('✅ Contact form initialized');
     }
 
@@ -51,13 +50,7 @@ class ContactForm {
         const serviceSelect = document.getElementById('serviceType');
         if (serviceSelect) {
             serviceSelect.addEventListener('change', (e) => {
-                if (e.target.value) {
-                    ConfigUtils.trackEvent('Form Interaction', {
-                        action: 'service_selected',
-                        service: e.target.value,
-                        location: 'contact_form'
-                    });
-                }
+                // Service selection tracking removed
             });
         }
     }
@@ -85,53 +78,6 @@ class ContactForm {
                 return null;
             }
         };
-    }
-
-    setupContactPageElements() {
-        // Update contact page specific phone/email elements
-        const config = window.AppConfig;
-        if (!config) return;
-
-        const business = config.getBusiness();
-
-        // Contact page phone elements
-        this.updateContactElement('contactPhoneMain', `tel:${business.phoneRaw}`, business.phone);
-        this.updateContactElement('contactPhoneEmergency', `tel:${business.emergencyPhoneRaw}`, business.emergencyPhone);
-        this.updateContactElement('contactEmailMain', `mailto:${business.email}`, business.email);
-        this.updateContactElement('contactAddress', null, business.address);
-        this.updateContactElement('emergencyMainBtn', `tel:${business.emergencyPhoneRaw}`, `Call Emergency Line: ${business.emergencyPhone}`);
-
-        // Add click tracking to contact page elements
-        this.setupContactTracking();
-    }
-
-    updateContactElement(id, href, text) {
-        const element = document.getElementById(id);
-        if (!element) return;
-
-        if (href && element.tagName.toLowerCase() === 'a') {
-            element.href = href;
-        }
-        element.textContent = text;
-    }
-
-    setupContactTracking() {
-        // Track contact page interactions
-        const trackableElements = [
-            { id: 'contactPhoneMain', event: 'Phone Call Initiated', props: { location: 'contact_page', type: 'general' }},
-            { id: 'contactPhoneEmergency', event: 'Phone Call Initiated', props: { location: 'contact_page', type: 'emergency' }},
-            { id: 'contactEmailMain', event: 'Email Clicked', props: { location: 'contact_page' }},
-            { id: 'emergencyMainBtn', event: 'Phone Call Initiated', props: { location: 'contact_page_banner', type: 'emergency' }}
-        ];
-
-        trackableElements.forEach(({ id, event, props }) => {
-            const element = document.getElementById(id);
-            if (element) {
-                element.addEventListener('click', () => {
-                    ConfigUtils.trackEvent(event, props);
-                });
-            }
-        });
     }
 
     validateField(field) {
@@ -217,21 +163,11 @@ class ContactForm {
         
         if (this.isSubmitting) return;
         
-        // Track form submission attempt
-        ConfigUtils.trackEvent('Form Submitted', {
-            form_type: 'contact',
-            location: 'contact_page',
-            attempt: 'started'
-        });
-
+        // Track form submission attempt (removed)
+        
         // Validate form
         if (!this.validateForm()) {
-            ConfigUtils.trackEvent('Form Submitted', {
-                form_type: 'contact',
-                location: 'contact_page',
-                success: false,
-                error: 'validation_failed'
-            });
+            // Form validation tracking removed
             return;
         }
 
@@ -254,25 +190,13 @@ class ContactForm {
             // Show success message
             this.showSuccess();
 
-            // Track successful submission
-            ConfigUtils.trackEvent('Form Submitted', {
-                form_type: 'contact',
-                location: 'contact_page',
-                success: true,
-                service_type: data.serviceType || 'not_specified',
-                property_type: data.propertyType
-            });
+            // Form submission success tracking removed
 
         } catch (error) {
             console.error('Form submission error:', error);
             this.showError('Sorry, there was an error submitting your form. Please try again or call us directly.');
             
-            ConfigUtils.trackEvent('Form Submitted', {
-                form_type: 'contact',
-                location: 'contact_page',
-                success: false,
-                error: 'submission_failed'
-            });
+            // Form submission error tracking removed
         } finally {
             this.isSubmitting = false;
             this.setLoadingState(false);
@@ -368,12 +292,7 @@ class ContactForm {
                     icon.textContent = '−';
                     icon.style.transform = 'rotate(180deg)';
                     
-                    // Track FAQ interaction
-                    ConfigUtils.trackEvent('FAQ Interaction', {
-                        question: question.textContent.trim(),
-                        action: 'opened',
-                        location: 'contact_page'
-                    });
+                    // Track FAQ interaction (removed)
                 } else {
                     answer.classList.add('hidden');
                     icon.textContent = '+';

@@ -1,135 +1,14 @@
 # Cool Brothers HVAC Website
 
-A professional HVAC company website built with vanilla HTML, CSS, and JavaScript, featuring configuration-driven development and Segment analytics integration.
+A professional HVAC company website built with vanilla HTML, CSS, and JavaScript.
 
-## 🔧 Configuration System
-
-This website uses a centralized configuration system that allows you to easily manage all API keys, business information, and settings from a single location.
+## � Quick Setup
 
 ### Quick Start
 
-1. **Copy the environment template:**
-   ```bash
-   cp .env.example .env
-   ```
+1. **Clone or download the project files**
 
-2. **Edit your configuration:**
-   Open `js/config.js` and update the values in the `loadEnvironment()` method, or set up environment variables if using a build system.
-
-3. **Add your Segment Analytics key:**
-   Replace `paste_your_segment_key_here` with your actual Segment write key.
-
-### Configuration Files
-
-- **`.env.example`** - Template showing all available configuration options
-- **`js/config.js`** - Main configuration file that loads environment variables
-- **`js/main.js`** - Application logic that uses the configuration
-
-## 📊 Analytics Integration
-
-### Segment Analytics
-The website includes comprehensive Segment analytics tracking:
-
-- **Automatic tracking:** Page views, scroll depth, load times
-- **Business events:** Phone calls, email clicks, form submissions  
-- **User engagement:** Service inquiries, testimonial views, navigation
-- **Error tracking:** Failed form submissions, broken links
-
-### Analytics Events Tracked
-
-| Event | Description | Properties |
-|-------|-------------|------------|
-| `CTA Clicked` | Call-to-action button clicks | location, action |
-| `Phone Call Initiated` | Phone number clicks | location, phone, type |
-| `Email Clicked` | Email address clicks | email, location |
-| `Service Inquiry` | Service page interactions | service, action |
-| `Form Submitted` | Contact form submissions | form_type, success |
-| `Scroll Depth` | Page scroll engagement | depth, page |
-
-### Setting Up Analytics
-
-1. **Get your Segment write key:**
-   - Sign up at [segment.com](https://segment.com)
-   - Create a new source for your website
-   - Copy the write key
-
-2. **Update configuration:**
-   ```javascript
-   // In js/config.js, replace:
-   SEGMENT_WRITE_KEY: 'paste_your_segment_key_here',
-   // With your actual key:
-   SEGMENT_WRITE_KEY: 'your_actual_segment_key_here',
-   ```
-
-3. **Test analytics:**
-   - Open browser developer tools
-   - Look for console messages confirming analytics initialization
-   - Check Segment debugger for incoming events
-
-## 🏢 Business Configuration
-
-### Updating Business Information
-
-All business information is centralized in the configuration system:
-
-```javascript
-// Business contact information
-BUSINESS_NAME: 'Cool Brothers HVAC',
-BUSINESS_EMAIL: 'info@coolbrothershvac.com',
-BUSINESS_PHONE: '(555) 123-4567',
-BUSINESS_ADDRESS: '123 Main St, Springfield, USA',
-
-// Emergency contact
-EMERGENCY_PHONE: '(555) 123-4567',
-
-// Website settings
-SITE_URL: 'https://coolbrothershvac.com',
-SITE_LOGO: 'assets/images/logo.svg'
-```
-
-### Dynamic Content Population
-
-The website automatically populates content from configuration:
-
-- Page titles and meta descriptions
-- Header and footer contact information
-- Phone numbers with proper tel: links
-- Email addresses with tracking
-- Company name throughout the site
-
-## 🎯 Event Tracking Usage
-
-### Manual Event Tracking
-
-Use the `ConfigUtils.trackEvent()` function to track custom events:
-
-```javascript
-// Track a service inquiry
-ConfigUtils.trackEvent('Service Inquiry', {
-    service: 'Air Conditioning',
-    action: 'learn_more',
-    location: 'homepage'
-});
-
-// Track form interactions
-ConfigUtils.trackEvent('Form Submitted', {
-    form_type: 'contact',
-    success: true,
-    fields: ['name', 'email', 'phone']
-});
-```
-
-### Automatic Tracking
-
-The following events are tracked automatically:
-
-- Page loads and performance metrics
-- Phone number and email clicks
-- Newsletter signups
-- Service page interactions
-- Scroll depth and engagement
-
-## 🚀 Development Setup
+2. **Customize business information:**
 
 ### File Structure
 ```
@@ -143,7 +22,6 @@ cool-brothers-hvac/
 ├── css/
 │   └── main.css           # Complete responsive stylesheet
 ├── js/
-│   ├── config.js          # Configuration management system
 │   ├── main.js            # Main application logic
 │   └── contact.js         # Contact form and page interactions
 ├── assets/
@@ -156,23 +34,12 @@ cool-brothers-hvac/
 
 1. **Clone or download the project files**
 
-2. **Set up your Segment Analytics key:**
-   ```javascript
-   // Open: js/config.js
-   // Find line ~25:
-   SEGMENT_WRITE_KEY: 'paste_your_segment_key_here',
-   // Replace with:
-   SEGMENT_WRITE_KEY: 'your_actual_segment_write_key',
-   ```
-
-3. **Customize business information:**
-   ```javascript
-   // In js/config.js, update these values:
-   BUSINESS_NAME: 'Cool Brothers HVAC',
-   BUSINESS_EMAIL: 'info@coolbrothershvac.com',
-   BUSINESS_PHONE: '(555) 123-4567',
-   BUSINESS_ADDRESS: '123 Main St, Springfield, USA',
-   ```
+2. **Customize business information:**
+   Edit the HTML files directly to update business details:
+   - Company name: "Cool Brothers HVAC" 
+   - Phone: "(555) 123-4567"
+   - Email: "info@coolbrothershvac.com"
+   - Address: "123 Main St, Springfield, USA"
 
 4. **Start a local development server:**
    ```bash
@@ -192,11 +59,10 @@ cool-brothers-hvac/
 5. **Open your browser:**
    Navigate to `http://localhost:8000` and explore the site!
 
-6. **Test the configuration system:**
+6. **Test the website:**
    - Open browser Developer Tools (F12)
-   - Check console for configuration messages
-   - Test phone/email links to verify they update automatically
-   - Try the contact form to see analytics events
+   - Test phone/email links to verify they work properly
+   - Try the contact form
 
 ### What's Included
 
@@ -212,18 +78,6 @@ cool-brothers-hvac/
 - Professional HVAC color scheme
 - Smooth animations and transitions
 - Print styles and dark mode support
-
-✅ **Configuration Management System**
-- Centralized business information
-- Environment variable support
-- Feature flags and settings
-- Development vs production modes
-
-✅ **Comprehensive Analytics**
-- Segment.js integration with error handling
-- 15+ tracked events (calls, clicks, forms, scroll depth)
-- Business-specific event properties  
-- Development debugging tools
 
 ✅ **Interactive Features**
 - Contact form with validation
@@ -257,7 +111,7 @@ cool-brothers-hvac/
 
 ### Changing Business Information
 
-1. Update business details in `js/config.js`
+1. Edit HTML files directly to update business details
 2. Replace logo in `assets/images/logo.svg` 
 3. Update favicon in `assets/images/favicon.ico`
 4. Modify color scheme in CSS files
@@ -265,16 +119,7 @@ cool-brothers-hvac/
 
 ### Adding New Features
 
-The configuration system supports feature flags:
-
-```javascript
-// Feature toggles
-ENABLE_CHAT_WIDGET: false,
-ENABLE_BOOKING_SYSTEM: false, 
-ENABLE_PAYMENT_PROCESSING: false
-```
-
-Enable features by setting them to `true` and implementing the functionality.
+To add new features, modify the HTML, CSS, and JavaScript files directly as needed.
 
 ## 📈 Performance Monitoring
 
@@ -284,14 +129,13 @@ Enable features by setting them to `true` and implementing the functionality.
 - User engagement depth  
 - Conversion funnel performance
 - Error rates and types
-- Device and browser analytics
+- Device and browser information
 
 ### Optimization Tips
 
 1. **Images**: Optimize all images for web (WebP format recommended)
 2. **CSS**: Minify CSS files for production
 3. **JavaScript**: Remove console logs and comments for production
-4. **Analytics**: Review event volume to avoid analytics quotas
 
 ## 🔒 Security Notes
 
@@ -304,21 +148,19 @@ Enable features by setting them to `true` and implementing the functionality.
 
 ### Client-Side Limitations  
 
-Remember that all configuration values are visible to users in the browser. Never include:
+Remember to keep sensitive information secure. Never include in client-side code:
 
 - Server-side API keys
-- Database passwords
+- Database passwords 
 - Private authentication tokens
-- Sensitive business information
 
 ## 📞 Support
 
 For questions about this website setup:
 
 1. Check browser console for error messages
-2. Verify configuration values are properly set
-3. Test analytics in Segment's debugger
-4. Review this README for setup steps
+2. Verify business contact information is displaying correctly
+3. Review this README for setup steps
 
 ## 📝 License
 
