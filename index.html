@@ -89,7 +89,7 @@
             analytics._writeKey = "bXrzP5qFCY08wrAiox4tuiKmRUQiWQme";
             analytics.SNIPPET_VERSION = "5.2.0";
             analytics.load("bXrzP5qFCY08wrAiox4tuiKmRUQiWQme");
-            analytics.page();
+            analytics.page('Home');
           }
       })();
     </script>
@@ -158,25 +158,25 @@
                   class="navbar__link navbar__link--active"
                   role="menuitem"
                   aria-current="page"
-                  onclick="analytics.track('Navigation Click', { link_text: 'Home', section: 'Header' });"
+                  onclick="analytics.track('Navigation Home Click', { link_text: 'Home', section: 'Header' });"
                   >Home</a
                 >
               </li>
               <li class="navbar__item" role="none">
                 <a href="services.html" class="navbar__link" role="menuitem"
-                onclick="analytics.track('Navigation Click', { link_text: 'Services', section: 'Header' });"
+                onclick="analytics.track('Navigation Services Click', { link_text: 'Services', section: 'Header' });"
                   >Services</a
                 >
               </li>
               <li class="navbar__item" role="none">
                 <a href="about.html" class="navbar__link" role="menuitem"
-                  onclick="analytics.track('Navigation Click', { link_text: 'About', section: 'Header' });"
+                  onclick="analytics.track('Navigation About Click', { link_text: 'About', section: 'Header' });"
                   >About</a
                 >
               </li>
               <li class="navbar__item" role="none">
                 <a href="contact.html" class="navbar__link" role="menuitem"
-                  onclick="analytics.track('Navigation Click', { link_text: 'Contact', section: 'Header' });"
+                  onclick="analytics.track('Navigation Contact Click', { link_text: 'Contact', section: 'Header' });"
                   >Contact</a
                 >
               </li>
