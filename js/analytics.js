@@ -242,6 +242,7 @@ class AnalyticsManager {
                 const isExternal = href && !href.includes(window.location.hostname);
                 const isPhone = href && href.startsWith('tel:');
                 const isEmail = href && href.startsWith('mailto:');
+                const isNavigation = this.isNavigationLink(link);
                 
                 let eventName = 'Link Clicked';
                 const eventData = {
@@ -264,11 +265,68 @@ class AnalyticsManager {
                 } else if (href?.startsWith('#')) {
                     eventName = 'Internal Navigation';
                     eventData.target_section = href.substring(1);
+                } else if (isNavigation && href) {
+                    // Track navigation page intention
+                    eventName = 'Navigation Clicked';
+                    const targetPageName = this.getPageNameFromHref(href);
+                    eventData.target_page = targetPageName;
+                    eventData.navigation_type = 'main_nav';
+                    
+                    // Also track as a page view intention
+                    this.track('Page View Initiated', {
+                        intended_page: targetPageName,
+                        from_page: this.getPageNameFromURL(),
+                        navigation_method: 'header_nav',
+                        timestamp: new Date().toISOString()
+                    });
                 }
 
                 this.track(eventName, eventData);
             });
         });
+    }
+
+    /**
+     * Check if link is a navigation link
+     */
+    isNavigationLink(link) {
+        // Check if link is in navigation areas
+        const navSelectors = [
+            '.navbar__link',
+            '.navbar__nav a',
+            '.footer__link',
+            '.footer__nav a',
+            '[role="menuitem"]'
+        ];
+
+        return navSelectors.some(selector => {
+            if (link.matches(selector)) return true;
+            return link.closest('.navbar, .footer__nav, [role="menubar"]') !== null;
+        });
+    }
+
+    /**
+     * Get page name from href URL
+     */
+    getPageNameFromHref(href) {
+        try {
+            const url = new URL(href);
+            const filename = url.pathname.split('/').pop() || 'index.html';
+            
+            const pageMap = {
+                'index.html': 'Home',
+                '': 'Home',
+                'services.html': 'Services',
+                'about.html': 'About', 
+                'contact.html': 'Contact'
+            };
+
+            return pageMap[filename] || filename.replace('.html', '').replace(/[_-]/g, ' ').replace(/\w\S*/g, (txt) => 
+                txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+            );
+        } catch (error) {
+            return 'Unknown';
+        }
     }
 
     /**
@@ -420,6 +478,11 @@ class AnalyticsManager {
             return;
         }
 
+        // If no page name provided, derive it from current URL
+        if (!pageName) {
+            pageName = this.getPageNameFromURL();
+        }
+
         const pageProperties = {
             ...properties,
             business_name: this.config?.get('BUSINESS_NAME') || 'Cool Brothers HVAC',
@@ -427,6 +490,7 @@ class AnalyticsManager {
             page_url: window.location.href,
             page_path: window.location.pathname,
             referrer: document.referrer,
+            page_category: this.getPageCategory(pageName),
             timestamp: new Date().toISOString()
         };
 
@@ -439,6 +503,42 @@ class AnalyticsManager {
         if (this.config?.isDevelopment()) {
             console.log('📊 Page View:', pageName, pageProperties);
         }
+    }
+
+    /**
+     * Get page name from current URL
+     */
+    getPageNameFromURL() {
+        const path = window.location.pathname;
+        const filename = path.split('/').pop() || 'index.html';
+        
+        // Map filenames to readable page names
+        const pageMap = {
+            'index.html': 'Home',
+            '': 'Home',
+            '/': 'Home',
+            'services.html': 'Services',
+            'about.html': 'About',
+            'contact.html': 'Contact'
+        };
+
+        return pageMap[filename] || pageMap[path] || filename.replace('.html', '').replace(/[_-]/g, ' ').replace(/\w\S*/g, (txt) => 
+            txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+        );
+    }
+
+    /**
+     * Get page category for analytics
+     */
+    getPageCategory(pageName) {
+        const categoryMap = {
+            'Home': 'main',
+            'Services': 'services',
+            'About': 'company',
+            'Contact': 'support'
+        };
+
+        return categoryMap[pageName] || 'other';
     }
 
     /**
@@ -484,28 +584,105 @@ class AnalyticsManager {
         const eventName = hvacEventMap[eventType] || eventType;
         this.track(eventName, properties);
     }
+
+    /**
+     * Track page views for specific navigation events
+     * This method can be called directly for manual page tracking
+     */
+    trackPageNavigation(targetPage, source = 'navigation') {
+        this.track('Page Navigation', {
+            target_page: targetPage,
+            current_page: this.getPageNameFromURL(),
+            navigation_source: source,
+            timestamp: new Date().toISOString()
+        });
+
+        // Also track as page view intention
+        this.track('Page View Initiated', {
+            intended_page: targetPage,
+            from_page: this.getPageNameFromURL(),
+            navigation_method: source,
+            timestamp: new Date().toISOString()
+        });
+    }
+}
+
+/**
+ * Utility class for easy analytics tracking from HTML
+ */
+class AnalyticsUtils {
+    /**
+     * Track an event (can be called from HTML onclick)
+     */
+    static trackEvent(eventName, properties = {}) {
+        if (window.Analytics) {
+            window.Analytics.track(eventName, properties);
+        }
+    }
+
+    /**
+     * Track page navigation (can be called from HTML onclick)
+     */
+    static trackPageNavigation(targetPage, source = 'manual') {
+        if (window.Analytics) {
+            window.Analytics.trackPageNavigation(targetPage, source);
+        }
+    }
+
+    /**
+     * Track page view (can be called from HTML)
+     */
+    static trackPage(pageName, properties = {}) {
+        if (window.Analytics) {
+            window.Analytics.page(pageName, properties);
+        }
+    }
+
+    /**
+     * Track HVAC specific events
+     */
+    static trackHVACEvent(eventType, properties = {}) {
+        if (window.Analytics) {
+            window.Analytics.trackHVACEvent(eventType, properties);
+        }
+    }
+}
 }
 
 // Create global analytics instance
 window.Analytics = new AnalyticsManager();
 
+// Create global utilities for easy HTML integration  
+window.AnalyticsUtils = AnalyticsUtils;
+window.ConfigUtils = AnalyticsUtils; // Alias for backward compatibility with existing HTML
+
 // Initialize analytics when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         window.Analytics.init().then(() => {
-            // Track initial page view
-            window.Analytics.page();
+            // Track initial page view with specific page name
+            const pageName = window.Analytics.getPageNameFromURL();
+            window.Analytics.page(pageName, {
+                initial_page_load: true,
+                page_load_time: Date.now(),
+                source: 'direct_page_load'
+            });
         });
     });
 } else {
     // DOM already loaded
     window.Analytics.init().then(() => {
-        // Track initial page view
-        window.Analytics.page();
+        // Track initial page view with specific page name
+        const pageName = window.Analytics.getPageNameFromURL();
+        window.Analytics.page(pageName, {
+            initial_page_load: true,
+            page_load_time: Date.now(),
+            source: 'direct_page_load'
+        });
     });
 }
 
 // Export for module usage
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = AnalyticsManager;
+    module.exports = { AnalyticsManager, AnalyticsUtils };
 }

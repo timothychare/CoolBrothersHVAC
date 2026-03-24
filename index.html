@@ -51,16 +51,20 @@
                 <div class="navbar__menu" id="navbarMenu">
                     <ul class="navbar__nav" role="menubar">
                         <li class="navbar__item" role="none">
-                            <a href="index.html" class="navbar__link navbar__link--active" role="menuitem" aria-current="page">Home</a>
+                            <a href="index.html" class="navbar__link navbar__link--active" role="menuitem" aria-current="page" 
+                               onclick="AnalyticsUtils.trackPageNavigation('Home', 'header_nav')">Home</a>
                         </li>
                         <li class="navbar__item" role="none">
-                            <a href="services.html" class="navbar__link" role="menuitem">Services</a>
+                            <a href="services.html" class="navbar__link" role="menuitem"
+                               onclick="AnalyticsUtils.trackPageNavigation('Services', 'header_nav')">Services</a>
                         </li>
                         <li class="navbar__item" role="none">
-                            <a href="about.html" class="navbar__link" role="menuitem">About</a>
+                            <a href="about.html" class="navbar__link" role="menuitem"
+                               onclick="AnalyticsUtils.trackPageNavigation('About', 'header_nav')">About</a>
                         </li>
                         <li class="navbar__item" role="none">
-                            <a href="contact.html" class="navbar__link" role="menuitem">Contact</a>
+                            <a href="contact.html" class="navbar__link" role="menuitem"
+                               onclick="AnalyticsUtils.trackPageNavigation('Contact', 'header_nav')">Contact</a>
                         </li>
                         <!-- Emergency contact in header -->
                         <li class="navbar__item navbar__item--emergency" role="none">
@@ -151,7 +155,8 @@
                             <li>✓ Energy Efficiency Upgrades</li>
                         </ul>
                         <div class="service-card__actions">
-                            <a href="services.html#air-conditioning" class="btn btn--outline">Learn More</a>
+                            <a href="services.html#air-conditioning" class="btn btn--outline"
+                               onclick="AnalyticsUtils.trackPageNavigation('Services', 'service_card'); AnalyticsUtils.trackEvent('Service Interest', {service_type: 'air_conditioning', source: 'home_page_card', action: 'learn_more'});">Learn More</a>
                             <span class="service-card__price">Starting at $89</span>
                         </div>
                     </article>
@@ -172,7 +177,8 @@
                             <li>✓ Ductwork Services</li>
                         </ul>
                         <div class="service-card__actions">
-                            <a href="services.html#heating" class="btn btn--outline">Learn More</a>
+                            <a href="services.html#heating" class="btn btn--outline"
+                               onclick="AnalyticsUtils.trackPageNavigation('Services', 'service_card'); AnalyticsUtils.trackEvent('Service Interest', {service_type: 'heating', source: 'home_page_card', action: 'learn_more'});">Learn More</a>
                             <span class="service-card__price">Starting at $95</span>
                         </div>
                     </article>
@@ -193,7 +199,8 @@
                             <li>✓ Priority Service</li>
                         </ul>
                         <div class="service-card__actions">
-                            <a href="services.html#maintenance" class="btn btn--outline">Learn More</a>
+                            <a href="services.html#maintenance" class="btn btn--outline"
+                               onclick="AnalyticsUtils.trackPageNavigation('Services', 'service_card'); AnalyticsUtils.trackEvent('Service Interest', {service_type: 'maintenance', source: 'home_page_card', action: 'learn_more'});">Learn More</a>
                             <span class="service-card__price">From $12/month</span>
                         </div>
                     </article>
@@ -319,10 +326,14 @@
                     <h3 class="footer__title">Quick Links</h3>
                     <nav class="footer__nav" role="navigation" aria-label="Footer navigation">
                         <ul class="footer__nav-list">
-                            <li><a href="index.html" class="footer__link">Home</a></li>
-                            <li><a href="services.html" class="footer__link">Services</a></li>
-                            <li><a href="about.html" class="footer__link">About Us</a></li>
-                            <li><a href="contact.html" class="footer__link">Contact</a></li>
+                            <li><a href="index.html" class="footer__link" 
+                                   onclick="AnalyticsUtils.trackPageNavigation('Home', 'footer_nav')">Home</a></li>
+                            <li><a href="services.html" class="footer__link"
+                                   onclick="AnalyticsUtils.trackPageNavigation('Services', 'footer_nav')">Services</a></li>
+                            <li><a href="about.html" class="footer__link"
+                                   onclick="AnalyticsUtils.trackPageNavigation('About', 'footer_nav')">About Us</a></li>
+                            <li><a href="contact.html" class="footer__link"
+                                   onclick="AnalyticsUtils.trackPageNavigation('Contact', 'footer_nav')">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -331,10 +342,14 @@
                 <div class="footer__section">
                     <h3 class="footer__title">Our Services</h3>
                     <ul class="footer__nav-list">
-                        <li><a href="services.html#air-conditioning" class="footer__link">Air Conditioning</a></li>
-                        <li><a href="services.html#heating" class="footer__link">Heating Systems</a></li>
-                        <li><a href="services.html#maintenance" class="footer__link">Maintenance Plans</a></li>
-                        <li><a href="services.html#emergency" class="footer__link">Emergency Repairs</a></li>
+                        <li><a href="services.html#air-conditioning" class="footer__link"
+                               onclick="AnalyticsUtils.trackPageNavigation('Services', 'footer_services')">Air Conditioning</a></li>
+                        <li><a href="services.html#heating" class="footer__link"
+                               onclick="AnalyticsUtils.trackPageNavigation('Services', 'footer_services')">Heating Systems</a></li>
+                        <li><a href="services.html#maintenance" class="footer__link"
+                               onclick="AnalyticsUtils.trackPageNavigation('Services', 'footer_services')">Maintenance Plans</a></li>
+                        <li><a href="services.html#emergency" class="footer__link"
+                               onclick="AnalyticsUtils.trackPageNavigation('Services', 'footer_services')">Emergency Repairs</a></li>
                     </ul>
                 </div>
                 
