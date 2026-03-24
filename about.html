@@ -1,373 +1,500 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Cool Brothers HVAC - Meet our certified technicians and learn about our 25+ years of professional HVAC service experience.">
-    <meta name="keywords" content="HVAC company, certified technicians, licensed HVAC, professional service, heating cooling experts">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="About Cool Brothers HVAC - Meet our certified technicians and learn about our 25+ years of professional HVAC service experience."
+    />
+    <meta
+      name="keywords"
+      content="HVAC company, certified technicians, licensed HVAC, professional service, heating cooling experts"
+    />
     <title>About Us - Cool Brothers HVAC</title>
-    
+
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/main.css">
-    
+    <link rel="stylesheet" href="css/main.css" />
+
     <!-- Load Configuration First -->
 
-    
-
-    
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Header with navigation -->
     <header class="header" role="banner">
-        <div class="container">
-            <nav class="navbar" role="navigation" aria-label="Main navigation">
-                <!-- Logo and company name -->
-                <div class="navbar__brand">
-                    <img src="assets/images/logo.svg" alt="Cool Brothers HVAC" class="logo" width="50" height="50">
-                    <span class="company-name">Cool Brothers HVAC</span>
-                </div>
-                
-                <!-- Mobile menu toggle button -->
-                <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-                    <span class="navbar__toggle-icon"></span>
-                    <span class="navbar__toggle-icon"></span>
-                    <span class="navbar__toggle-icon"></span>
-                </button>
-                
-                <!-- Navigation menu -->
-                <div class="navbar__menu" id="navbarMenu">
-                    <ul class="navbar__nav" role="menubar">
-                        <li class="navbar__item" role="none">
-                            <a href="index.html" class="navbar__link" role="menuitem">Home</a>
-                        </li>
-                        <li class="navbar__item" role="none">
-                            <a href="services.html" class="navbar__link" role="menuitem">Services</a>
-                        </li>
-                        <li class="navbar__item" role="none">
-                            <a href="about.html" class="navbar__link navbar__link--active" role="menuitem" aria-current="page">About</a>
-                        </li>
-                        <li class="navbar__item" role="none">
-                            <a href="contact.html" class="navbar__link" role="menuitem">Contact</a>
-                        </li>
-                        <!-- Emergency contact in header -->
-                        <li class="navbar__item navbar__item--emergency" role="none">
-                            <a href="#" class="btn btn--emergency" role="menuitem" id="headerEmergencyBtn">
-                                <span class="emergency-icon">🚨</span>
-                                <span class="emergency-text">Emergency: (555) 123-4567</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+      <div class="container">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+          <!-- Logo and company name -->
+          <div class="navbar__brand">
+            <img
+              src="assets/images/logo.svg"
+              alt="Cool Brothers HVAC"
+              class="logo"
+              width="50"
+              height="50"
+            />
+            <span class="company-name">Cool Brothers HVAC</span>
+          </div>
+
+          <!-- Mobile menu toggle button -->
+          <button
+            class="navbar__toggle"
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+          >
+            <span class="navbar__toggle-icon"></span>
+            <span class="navbar__toggle-icon"></span>
+            <span class="navbar__toggle-icon"></span>
+          </button>
+
+          <!-- Navigation menu -->
+          <div class="navbar__menu" id="navbarMenu">
+            <ul class="navbar__nav" role="menubar">
+              <li class="navbar__item" role="none">
+                <a href="index.html" class="navbar__link" role="menuitem"
+                onclick="analytics.track('Navigation Click', { link_text: 'Home', section: 'Header' });"
+                  >Home</a
+                >
+              </li>
+              <li class="navbar__item" role="none">
+                <a href="services.html" class="navbar__link" role="menuitem"
+                onclick="analytics.track('Navigation Click', { link_text: 'Services', section: 'Header' });"
+                  >Services</a
+                >
+              </li>
+              <li class="navbar__item" role="none">
+                <a
+                  href="about.html"
+                  class="navbar__link navbar__link--active"
+                  role="menuitem"
+                  aria-current="page"
+                    onclick="analytics.track('Navigation Click', { link_text: 'About', section: 'Header' });"
+                  >About</a
+                >
+              </li>
+              <li class="navbar__item" role="none">
+                <a href="contact.html" class="navbar__link" role="menuitem"
+                onclick="analytics.track('Navigation Click', { link_text: 'Contact', section: 'Header' });"
+                  >Contact</a
+                >
+              </li>
+              <!-- Emergency contact in header -->
+              <li class="navbar__item navbar__item--emergency" role="none">
+                <a
+                  href="#"
+                  class="btn btn--emergency"
+                  role="menuitem"
+                  id="headerEmergencyBtn"
+                  onclick="analytics.track('Navigation Click', { link_text: 'Emergency', section: 'Header' });"
+                >
+                  <span class="emergency-icon">🚨</span>
+                  <span class="emergency-text">Emergency: (555) 123-4567</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </header>
-    
+
     <!-- Main content -->
     <main id="main" class="main" role="main">
-        
-        <!-- About Hero -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero__content">
-                    <h1 class="hero__title">
-                        About
-                        <span class="hero__subtitle">Cool Brothers HVAC</span>
-                    </h1>
-                    <p class="hero__description">
-                        Over 25 years of professional HVAC experience serving residential and commercial customers. 
-                        Licensed, insured, and committed to your comfort.
-                    </p>
-                </div>
+      <!-- About Hero -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero__content">
+            <h1 class="hero__title">
+              About
+              <span class="hero__subtitle">Cool Brothers HVAC</span>
+            </h1>
+            <p class="hero__description">
+              Over 25 years of professional HVAC experience serving residential
+              and commercial customers. Licensed, insured, and committed to your
+              comfort.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Company Story -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-description">
+              Founded by two brothers with a passion for keeping people
+              comfortable
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 class="text-2xl font-semibold mb-4 text-gray-900">
+                Family-Owned Excellence Since 1998
+              </h3>
+              <p class="mb-4 text-gray-700">
+                Cool Brothers HVAC was founded when brothers Mike and Dave
+                Rodriguez realized their community needed reliable, honest HVAC
+                service. What started as two brothers in a pickup truck has
+                grown into a trusted team of certified technicians serving
+                thousands of satisfied customers.
+              </p>
+              <p class="mb-4 text-gray-700">
+                We built our business on simple principles: treat every customer
+                like family, provide upfront honest pricing, and never
+                compromise on quality. These values continue to guide us today
+                as we've grown into one of the region's most trusted HVAC
+                companies.
+              </p>
+              <p class="text-gray-700">
+                From emergency repairs at 2 AM to complex commercial
+                installations, we bring the same level of professionalism and
+                care to every job. Because at Cool Brothers, your comfort is our
+                mission.
+              </p>
             </div>
-        </section>
-        
-        <!-- Company Story -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Our Story</h2>
-                    <p class="section-description">
-                        Founded by two brothers with a passion for keeping people comfortable
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-4 text-gray-900">Family-Owned Excellence Since 1998</h3>
-                        <p class="mb-4 text-gray-700">
-                            Cool Brothers HVAC was founded when brothers Mike and Dave Rodriguez realized their community 
-                            needed reliable, honest HVAC service. What started as two brothers in a pickup truck has grown 
-                            into a trusted team of certified technicians serving thousands of satisfied customers.
-                        </p>
-                        <p class="mb-4 text-gray-700">
-                            We built our business on simple principles: treat every customer like family, provide upfront 
-                            honest pricing, and never compromise on quality. These values continue to guide us today as we've 
-                            grown into one of the region's most trusted HVAC companies.
-                        </p>
-                        <p class="text-gray-700">
-                            From emergency repairs at 2 AM to complex commercial installations, we bring the same level of 
-                            professionalism and care to every job. Because at Cool Brothers, your comfort is our mission.
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <div class="bg-gray-100 rounded-xl p-8">
-                            <p class="text-4xl mb-4">👥</p>
-                            <h4 class="text-xl font-semibold mb-2">Family Values</h4>
-                            <p class="text-gray-600">Built on trust, integrity, and a commitment to excellence that spans generations.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center">
+              <div class="bg-gray-100 rounded-xl p-8">
+                <p class="text-4xl mb-4">👥</p>
+                <h4 class="text-xl font-semibold mb-2">Family Values</h4>
+                <p class="text-gray-600">
+                  Built on trust, integrity, and a commitment to excellence that
+                  spans generations.
+                </p>
+              </div>
             </div>
-        </section>
-        
-        <!-- Team Section -->
-        <section class="section bg-gray-50">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Meet Our Team</h2>
-                    <p class="section-description">
-                        Certified professionals committed to providing exceptional HVAC service
-                    </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section class="section bg-gray-50">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-description">
+              Certified professionals committed to providing exceptional HVAC
+              service
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Team Member 1 -->
+            <div class="card text-center">
+              <div class="mb-4">
+                <div
+                  class="w-24 h-24 bg-primary-100 mx-auto rounded-full flex items-center justify-center text-4xl"
+                >
+                  👨‍🔧
                 </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Team Member 1 -->
-                    <div class="card text-center">
-                        <div class="mb-4">
-                            <div class="w-24 h-24 bg-primary-100 mx-auto rounded-full flex items-center justify-center text-4xl">
-                                👨‍🔧
-                            </div>
-                        </div>
-                        <h3 class="card__title">Mike Rodriguez</h3>
-                        <p class="text-primary-600 font-medium mb-3">Co-Founder & Lead Technician</p>
-                        <p class="text-gray-600 mb-4">
-                            25+ years experience, EPA certified, specializes in commercial HVAC systems and energy efficiency upgrades.
-                        </p>
-                        <div class="flex justify-center gap-2 text-sm">
-                            <span class="badge">EPA Certified</span>
-                            <span class="badge">NATE Certified</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Team Member 2 -->
-                    <div class="card text-center">
-                        <div class="mb-4">
-                            <div class="w-24 h-24 bg-primary-100 mx-auto rounded-full flex items-center justify-center text-4xl">
-                                👨‍💼
-                            </div>
-                        </div>
-                        <h3 class="card__title">Dave Rodriguez</h3>
-                        <p class="text-primary-600 font-medium mb-3">Co-Founder & Operations Manager</p>
-                        <p class="text-gray-600 mb-4">
-                            Business operations, customer relations, and quality assurance. Ensures every customer receives exceptional service.
-                        </p>
-                        <div class="flex justify-center gap-2 text-sm">
-                            <span class="badge">Business Management</span>
-                            <span class="badge">Customer Service</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Team Member 3 -->
-                    <div class="card text-center">
-                        <div class="mb-4">
-                            <div class="w-24 h-24 bg-primary-100 mx-auto rounded-full flex items-center justify-center text-4xl">
-                                👩‍🔧
-                            </div>
-                        </div>
-                        <h3 class="card__title">Sarah Johnson</h3>
-                        <p class="text-primary-600 font-medium mb-3">Senior Technician</p>
-                        <p class="text-gray-600 mb-4">
-                            Residential specialist with expertise in heat pumps, ductless systems, and energy-efficient installations.
-                        </p>
-                        <div class="flex justify-center gap-2 text-sm">
-                            <span class="badge">Heat Pump Expert</span>
-                            <span class="badge">Energy Efficiency</span>
-                        </div>
-                    </div>
-                </div>
+              </div>
+              <h3 class="card__title">Mike Rodriguez</h3>
+              <p class="text-primary-600 font-medium mb-3">
+                Co-Founder & Lead Technician
+              </p>
+              <p class="text-gray-600 mb-4">
+                25+ years experience, EPA certified, specializes in commercial
+                HVAC systems and energy efficiency upgrades.
+              </p>
+              <div class="flex justify-center gap-2 text-sm">
+                <span class="badge">EPA Certified</span>
+                <span class="badge">NATE Certified</span>
+              </div>
             </div>
-        </section>
-        
-        <!-- Values Section -->
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Our Core Values</h2>
-                    <p class="section-description">
-                        The principles that guide everything we do
-                    </p>
+
+            <!-- Team Member 2 -->
+            <div class="card text-center">
+              <div class="mb-4">
+                <div
+                  class="w-24 h-24 bg-primary-100 mx-auto rounded-full flex items-center justify-center text-4xl"
+                >
+                  👨‍💼
                 </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="text-center">
-                        <div class="text-4xl mb-4">🎯</div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Quality First</h3>
-                        <p class="text-gray-600">
-                            We use only top-quality parts and equipment, ensuring lasting solutions for your comfort needs.
-                        </p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="text-4xl mb-4">💯</div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Honest Pricing</h3>
-                        <p class="text-gray-600">
-                            Transparent, upfront pricing with no hidden fees. You'll know exactly what you're paying before we start.
-                        </p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="text-4xl mb-4">⚡</div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Reliable Service</h3>
-                        <p class="text-gray-600">
-                            When you need us, we're there. 24/7 emergency service and scheduled appointments you can count on.
-                        </p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="text-4xl mb-4">🏆</div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Customer Satisfaction</h3>
-                        <p class="text-gray-600">
-                            Your satisfaction is our success. We stand behind our work with comprehensive warranties and guarantees.
-                        </p>
-                    </div>
-                </div>
+              </div>
+              <h3 class="card__title">Dave Rodriguez</h3>
+              <p class="text-primary-600 font-medium mb-3">
+                Co-Founder & Operations Manager
+              </p>
+              <p class="text-gray-600 mb-4">
+                Business operations, customer relations, and quality assurance.
+                Ensures every customer receives exceptional service.
+              </p>
+              <div class="flex justify-center gap-2 text-sm">
+                <span class="badge">Business Management</span>
+                <span class="badge">Customer Service</span>
+              </div>
             </div>
-        </section>
-        
-        <!-- Certifications & Awards -->
-        <section class="section bg-gray-50">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Certifications & Recognition</h2>
-                    <p class="section-description">
-                        Licensed, certified, and recognized for excellence in HVAC service
-                    </p>
+
+            <!-- Team Member 3 -->
+            <div class="card text-center">
+              <div class="mb-4">
+                <div
+                  class="w-24 h-24 bg-primary-100 mx-auto rounded-full flex items-center justify-center text-4xl"
+                >
+                  👩‍🔧
                 </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="card text-center">
-                        <div class="text-3xl mb-3">📜</div>
-                        <h3 class="font-semibold">EPA Certified</h3>
-                        <p class="text-sm text-gray-600">Environmental Protection Agency certification for refrigerant handling</p>
-                    </div>
-                    
-                    <div class="card text-center">
-                        <div class="text-3xl mb-3">🎖️</div>
-                        <h3 class="font-semibold">NATE Certified</h3>
-                        <p class="text-sm text-gray-600">North American Technician Excellence certification</p>
-                    </div>
-                    
-                    <div class="card text-center">
-                        <div class="text-3xl mb-3">🛡️</div>
-                        <h3 class="font-semibold">Licensed & Insured</h3>
-                        <p class="text-sm text-gray-600">Full state licensing and comprehensive insurance coverage</p>
-                    </div>
-                    
-                    <div class="card text-center">
-                        <div class="text-3xl mb-3">⭐</div>
-                        <h3 class="font-semibold">BBB A+ Rating</h3>
-                        <p class="text-sm text-gray-600">Better Business Bureau accredited with A+ rating</p>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-12">
-                    <p class="text-lg text-gray-700 mb-6">
-                        Ready to experience the Cool Brothers difference? Contact us today for your free estimate.
-                    </p>
-                    <div class="flex flex-wrap gap-4 justify-center">
-                        <a href="contact.html" class="btn btn--primary btn--large">
-                            Get Free Estimate
-                        </a>
-                        <a href="#" class="btn btn--secondary btn--large" id="aboutPhoneBtn">
-                            <span class="phone-icon">📞</span>
-                            <span class="phone-text">Call Now: (555) 123-4567</span>
-                        </a>
-                    </div>
-                </div>
+              </div>
+              <h3 class="card__title">Sarah Johnson</h3>
+              <p class="text-primary-600 font-medium mb-3">Senior Technician</p>
+              <p class="text-gray-600 mb-4">
+                Residential specialist with expertise in heat pumps, ductless
+                systems, and energy-efficient installations.
+              </p>
+              <div class="flex justify-center gap-2 text-sm">
+                <span class="badge">Heat Pump Expert</span>
+                <span class="badge">Energy Efficiency</span>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Values Section -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Our Core Values</h2>
+            <p class="section-description">
+              The principles that guide everything we do
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div class="text-4xl mb-4">🎯</div>
+              <h3 class="text-xl font-semibold mb-3 text-gray-900">
+                Quality First
+              </h3>
+              <p class="text-gray-600">
+                We use only top-quality parts and equipment, ensuring lasting
+                solutions for your comfort needs.
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div class="text-4xl mb-4">💯</div>
+              <h3 class="text-xl font-semibold mb-3 text-gray-900">
+                Honest Pricing
+              </h3>
+              <p class="text-gray-600">
+                Transparent, upfront pricing with no hidden fees. You'll know
+                exactly what you're paying before we start.
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div class="text-4xl mb-4">⚡</div>
+              <h3 class="text-xl font-semibold mb-3 text-gray-900">
+                Reliable Service
+              </h3>
+              <p class="text-gray-600">
+                When you need us, we're there. 24/7 emergency service and
+                scheduled appointments you can count on.
+              </p>
+            </div>
+
+            <div class="text-center">
+              <div class="text-4xl mb-4">🏆</div>
+              <h3 class="text-xl font-semibold mb-3 text-gray-900">
+                Customer Satisfaction
+              </h3>
+              <p class="text-gray-600">
+                Your satisfaction is our success. We stand behind our work with
+                comprehensive warranties and guarantees.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications & Awards -->
+      <section class="section bg-gray-50">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Certifications & Recognition</h2>
+            <p class="section-description">
+              Licensed, certified, and recognized for excellence in HVAC service
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="card text-center">
+              <div class="text-3xl mb-3">📜</div>
+              <h3 class="font-semibold">EPA Certified</h3>
+              <p class="text-sm text-gray-600">
+                Environmental Protection Agency certification for refrigerant
+                handling
+              </p>
+            </div>
+
+            <div class="card text-center">
+              <div class="text-3xl mb-3">🎖️</div>
+              <h3 class="font-semibold">NATE Certified</h3>
+              <p class="text-sm text-gray-600">
+                North American Technician Excellence certification
+              </p>
+            </div>
+
+            <div class="card text-center">
+              <div class="text-3xl mb-3">🛡️</div>
+              <h3 class="font-semibold">Licensed & Insured</h3>
+              <p class="text-sm text-gray-600">
+                Full state licensing and comprehensive insurance coverage
+              </p>
+            </div>
+
+            <div class="card text-center">
+              <div class="text-3xl mb-3">⭐</div>
+              <h3 class="font-semibold">BBB A+ Rating</h3>
+              <p class="text-sm text-gray-600">
+                Better Business Bureau accredited with A+ rating
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <p class="text-lg text-gray-700 mb-6">
+              Ready to experience the Cool Brothers difference? Contact us today
+              for your free estimate.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center">
+              <a href="contact.html" class="btn btn--primary btn--large">
+                Get Free Estimate
+              </a>
+              <a
+                href="#"
+                class="btn btn--secondary btn--large"
+                id="aboutPhoneBtn"
+              >
+                <span class="phone-icon">📞</span>
+                <span class="phone-text">Call Now: (555) 123-4567</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-    
+
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer__content">
-                <!-- Company Information -->
-                <div class="footer__section">
-                    <div class="footer__brand">
-                        <img src="assets/images/logo.svg" alt="Cool Brothers HVAC" class="footer__logo" width="40" height="40">
-                        <span class="footer__company-name">Cool Brothers HVAC</span>
-                    </div>
-                    <p class="footer__description">
-                        Professional heating, cooling, and ventilation services for residential and commercial properties.
-                    </p>
-                </div>
-                
-                <!-- Quick Links -->
-                <div class="footer__section">
-                    <h3 class="footer__title">Quick Links</h3>
-                    <nav class="footer__nav" role="navigation" aria-label="Footer navigation">
-                        <ul class="footer__nav-list">
-                            <li><a href="index.html" class="footer__link">Home</a></li>
-                            <li><a href="services.html" class="footer__link">Services</a></li>
-                            <li><a href="about.html" class="footer__link">About Us</a></li>
-                            <li><a href="contact.html" class="footer__link">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                
-                <!-- Services -->
-                <div class="footer__section">
-                    <h3 class="footer__title">Our Services</h3>
-                    <ul class="footer__nav-list">
-                        <li><a href="services.html#air-conditioning" class="footer__link">Air Conditioning</a></li>
-                        <li><a href="services.html#heating" class="footer__link">Heating Systems</a></li>
-                        <li><a href="services.html#maintenance" class="footer__link">Maintenance Plans</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Information -->
-                <div class="footer__section">
-                    <h3 class="footer__title">Contact Info</h3>
-                    <div class="footer__contact">
-                        <div class="contact-item">
-                            <span class="contact-item__icon">📞</span>
-                            <a href="tel:+15551234567" class="contact-item__text" id="footerPhoneLink">(555) 123-4567</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-item__icon">✉️</span>
-                            <a href="mailto:info@coolbrothershvac.com" class="contact-item__text" id="footerEmailLink">info@coolbrothershvac.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-item__icon">📍</span>
-                            <span class="contact-item__text" id="footerAddress">123 Main St, Springfield, USA</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-item__icon">🕒</span>
-                            <span class="contact-item__text">24/7 Emergency Service</span>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer__content">
+          <!-- Company Information -->
+          <div class="footer__section">
+            <div class="footer__brand">
+              <img
+                src="assets/images/logo.svg"
+                alt="Cool Brothers HVAC"
+                class="footer__logo"
+                width="40"
+                height="40"
+              />
+              <span class="footer__company-name">Cool Brothers HVAC</span>
             </div>
-            
-            <!-- Footer Bottom -->
-            <div class="footer__bottom">
-                <div class="footer__copyright">
-                    <p>&copy; 2026 Cool Brothers HVAC. All rights reserved.</p>
-                </div>
-                <div class="footer__legal">
-                    <a href="#" class="footer__legal-link">Privacy Policy</a>
-                    <a href="#" class="footer__legal-link">Terms of Service</a>
-                </div>
+            <p class="footer__description">
+              Professional heating, cooling, and ventilation services for
+              residential and commercial properties.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer__section">
+            <h3 class="footer__title">Quick Links</h3>
+            <nav
+              class="footer__nav"
+              role="navigation"
+              aria-label="Footer navigation"
+            >
+              <ul class="footer__nav-list">
+                <li><a href="index.html" class="footer__link">Home</a></li>
+                <li>
+                  <a href="services.html" class="footer__link">Services</a>
+                </li>
+                <li><a href="about.html" class="footer__link">About Us</a></li>
+                <li><a href="contact.html" class="footer__link">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Services -->
+          <div class="footer__section">
+            <h3 class="footer__title">Our Services</h3>
+            <ul class="footer__nav-list">
+              <li>
+                <a href="services.html#air-conditioning" class="footer__link"
+                  >Air Conditioning</a
+                >
+              </li>
+              <li>
+                <a href="services.html#heating" class="footer__link"
+                  >Heating Systems</a
+                >
+              </li>
+              <li>
+                <a href="services.html#maintenance" class="footer__link"
+                  >Maintenance Plans</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="footer__section">
+            <h3 class="footer__title">Contact Info</h3>
+            <div class="footer__contact">
+              <div class="contact-item">
+                <span class="contact-item__icon">📞</span>
+                <a
+                  href="tel:+15551234567"
+                  class="contact-item__text"
+                  id="footerPhoneLink"
+                  >(555) 123-4567</a
+                >
+              </div>
+              <div class="contact-item">
+                <span class="contact-item__icon">✉️</span>
+                <a
+                  href="mailto:info@coolbrothershvac.com"
+                  class="contact-item__text"
+                  id="footerEmailLink"
+                  >info@coolbrothershvac.com</a
+                >
+              </div>
+              <div class="contact-item">
+                <span class="contact-item__icon">📍</span>
+                <span class="contact-item__text" id="footerAddress"
+                  >123 Main St, Springfield, USA</span
+                >
+              </div>
+              <div class="contact-item">
+                <span class="contact-item__icon">🕒</span>
+                <span class="contact-item__text">24/7 Emergency Service</span>
+              </div>
             </div>
+          </div>
         </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer__bottom">
+          <div class="footer__copyright">
+            <p>&copy; 2026 Cool Brothers HVAC. All rights reserved.</p>
+          </div>
+          <div class="footer__legal">
+            <a href="#" class="footer__legal-link">Privacy Policy</a>
+            <a href="#" class="footer__legal-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
     </footer>
-    
+
     <!-- JavaScript files -->
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>

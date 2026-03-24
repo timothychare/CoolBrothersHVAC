@@ -1,405 +1,500 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cool Brothers HVAC Services - Professional AC repair, heating, maintenance, and commercial HVAC solutions. Expert technicians available 24/7.">
-    <meta name="keywords" content="HVAC services, air conditioning repair, heating installation, maintenance plans, commercial HVAC">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cool Brothers HVAC Services - Professional AC repair, heating, maintenance, and commercial HVAC solutions. Expert technicians available 24/7."
+    />
+    <meta
+      name="keywords"
+      content="HVAC services, air conditioning repair, heating installation, maintenance plans, commercial HVAC"
+    />
     <title>Services - Cool Brothers HVAC</title>
-    
+
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/main.css">
-    
+    <link rel="stylesheet" href="css/main.css" />
+
     <!-- Load Configuration First -->
 
-    
-
-    
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Header with navigation -->
     <header class="header" role="banner">
-        <div class="container">
-            <nav class="navbar" role="navigation" aria-label="Main navigation">
-                <!-- Logo and company name -->
-                <div class="navbar__brand">
-                    <img src="assets/images/logo.svg" alt="Cool Brothers HVAC" class="logo" width="50" height="50">
-                    <span class="company-name">Cool Brothers HVAC</span>
-                </div>
-                
-                <!-- Mobile menu toggle button -->
-                <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-                    <span class="navbar__toggle-icon"></span>
-                    <span class="navbar__toggle-icon"></span>
-                    <span class="navbar__toggle-icon"></span>
-                </button>
-                
-                <!-- Navigation menu -->
-                <div class="navbar__menu" id="navbarMenu">
-                    <ul class="navbar__nav" role="menubar">
-                        <li class="navbar__item" role="none">
-                            <a href="index.html" class="navbar__link" role="menuitem">Home</a>
-                        </li>
-                        <li class="navbar__item" role="none">
-                            <a href="services.html" class="navbar__link navbar__link--active" role="menuitem" aria-current="page">Services</a>
-                        </li>
-                        <li class="navbar__item" role="none">
-                            <a href="about.html" class="navbar__link" role="menuitem">About</a>
-                        </li>
-                        <li class="navbar__item" role="none">
-                            <a href="contact.html" class="navbar__link" role="menuitem">Contact</a>
-                        </li>
-                        <!-- Emergency contact in header -->
-                        <li class="navbar__item navbar__item--emergency" role="none">
-                            <a href="#" class="btn btn--emergency" role="menuitem" id="headerEmergencyBtn">
-                                <span class="emergency-icon">🚨</span>
-                                <span class="emergency-text">Emergency: (555) 123-4567</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+      <div class="container">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
+          <!-- Logo and company name -->
+          <div class="navbar__brand">
+            <img
+              src="assets/images/logo.svg"
+              alt="Cool Brothers HVAC"
+              class="logo"
+              width="50"
+              height="50"
+            />
+            <span class="company-name">Cool Brothers HVAC</span>
+          </div>
+
+          <!-- Mobile menu toggle button -->
+          <button
+            class="navbar__toggle"
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+          >
+            <span class="navbar__toggle-icon"></span>
+            <span class="navbar__toggle-icon"></span>
+            <span class="navbar__toggle-icon"></span>
+          </button>
+
+          <!-- Navigation menu -->
+          <div class="navbar__menu" id="navbarMenu">
+            <ul class="navbar__nav" role="menubar">
+              <li class="navbar__item" role="none">
+                <a href="index.html" class="navbar__link" role="menuitem"
+                onclick="analytics.track('Navigation Click', { link_text: 'Home', section: 'Header' });"
+                  >Home</a
+                >
+              </li>
+              <li class="navbar__item" role="none">
+                <a
+                  href="services.html"
+                  class="navbar__link navbar__link--active"
+                  role="menuitem"
+                  aria-current="page"
+                    onclick="analytics.track('Navigation Click', { link_text: 'Services', section: 'Header' });"
+                  >Services</a
+                >
+              </li>
+              <li class="navbar__item" role="none">
+                <a href="about.html" class="navbar__link" role="menuitem"
+                onclick="analytics.track('Navigation Click', { link_text: 'About', section: 'Header' });"
+                    >About</a
+                >
+              </li>
+              <li class="navbar__item" role="none">
+                <a href="contact.html" class="navbar__link" role="menuitem"
+                    onclick="analytics.track('Navigation Click', { link_text: 'Contact', section: 'Header' });"
+                  >Contact</a
+                >
+              </li>
+              <!-- Emergency contact in header -->
+              <li class="navbar__item navbar__item--emergency" role="none">
+                <a
+                  href="#"
+                  class="btn btn--emergency"
+                  role="menuitem"
+                  id="headerEmergencyBtn"
+                >
+                  <span class="emergency-icon">🚨</span>
+                  <span class="emergency-text">Emergency: (555) 123-4567</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </header>
-    
+
     <!-- Main content -->
     <main id="main" class="main" role="main">
-        
-        <!-- Page Hero -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero__content">
-                    <h1 class="hero__title">
-                        Professional HVAC
-                        <span class="hero__subtitle">Services</span>
-                    </h1>
-                    <p class="hero__description">
-                        Comprehensive heating, cooling, and ventilation solutions for residential and commercial properties. 
-                        Licensed technicians with 24/7 emergency service.
-                    </p>
-                    <div class="hero__actions">
-                        <a href="contact.html" class="btn btn--primary btn--large">
-                            Get Free Estimate
-                        </a>
-                        <a href="#" class="btn btn--secondary btn--large" id="heroPhoneBtn">
-                            <span class="phone-icon">📞</span>
-                            <span class="phone-text">Call Now: (555) 123-4567</span>
-                        </a>
-                    </div>
-                </div>
+      <!-- Page Hero -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero__content">
+            <h1 class="hero__title">
+              Professional HVAC
+              <span class="hero__subtitle">Services</span>
+            </h1>
+            <p class="hero__description">
+              Comprehensive heating, cooling, and ventilation solutions for
+              residential and commercial properties. Licensed technicians with
+              24/7 emergency service.
+            </p>
+            <div class="hero__actions">
+              <a href="contact.html" class="btn btn--primary btn--large">
+                Get Free Estimate
+              </a>
+              <a
+                href="#"
+                class="btn btn--secondary btn--large"
+                id="heroPhoneBtn"
+              >
+                <span class="phone-icon">📞</span>
+                <span class="phone-text">Call Now: (555) 123-4567</span>
+              </a>
             </div>
-        </section>
-        
-        <!-- Services Sections -->
-        <section class="section">
-            <div class="container">
-                <!-- Air Conditioning Services -->
-                <div id="air-conditioning" class="mb-20">
-                    <div class="section-header">
-                        <h2 class="section-title">Air Conditioning Services</h2>
-                        <p class="section-description">
-                            Keep your space cool and comfortable with our expert air conditioning solutions.
-                        </p>
-                    </div>
-                    <div class="services-grid">
-                        <div class="service-card">
-                            <div class="service-card__icon">❄️</div>
-                            <h3 class="service-card__title">AC Repair & Maintenance</h3>
-                            <p class="service-card__description">
-                                Fast, reliable air conditioning repairs and preventive maintenance to keep your system running efficiently.
-                            </p>
-                            <ul class="service-card__features">
-                                <li>✓ Emergency 24/7 repairs</li>
-                                <li>✓ Refrigerant leak detection</li>
-                                <li>✓ Filter replacement</li>
-                                <li>✓ Duct cleaning</li>
-                                <li>✓ Energy efficiency optimization</li>
-                            </ul>
-                            <div class="service-card__actions">
-                                <a href="contact.html" class="btn btn--outline">Get Quote</a>
-                                <span class="service-card__price">Starting at $89</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card">
-                            <div class="service-card__icon">🏠</div>
-                            <h3 class="service-card__title">AC Installation</h3>
-                            <p class="service-card__description">
-                                Professional installation of new air conditioning systems with energy-efficient models and proper sizing.
-                            </p>
-                            <ul class="service-card__features">
-                                <li>✓ Energy-efficient models</li>
-                                <li>✓ Proper system sizing</li>
-                                <li>✓ Ductwork assessment</li>
-                                <li>✓ Warranty included</li>
-                                <li>✓ Financing available</li>
-                            </ul>
-                            <div class="service-card__actions">
-                                <a href="contact.html" class="btn btn--outline">Learn More</a>
-                                <span class="service-card__price">From $2,500</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card">
-                            <div class="service-card__icon">🔧</div>
-                            <h3 class="service-card__title">Ductless Mini-Splits</h3>
-                            <p class="service-card__description">
-                                Efficient ductless air conditioning systems perfect for room additions, older homes, or zone control.
-                            </p>
-                            <ul class="service-card__features">
-                                <li>✓ Zone temperature control</li>
-                                <li>✓ Energy savings up to 40%</li>
-                                <li>✓ Quiet operation</li>
-                                <li>✓ Easy installation</li>
-                                <li>✓ Heating and cooling</li>
-                            </ul>
-                            <div class="service-card__actions">
-                                <a href="contact.html" class="btn btn--outline">Get Quote</a>
-                                <span class="service-card__price">From $1,800</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Heating Services -->
-                <div id="heating" class="mb-20">
-                    <div class="section-header">
-                        <h2 class="section-title">Heating Services</h2>
-                        <p class="section-description">
-                            Reliable heating solutions to keep your property warm and comfortable all winter long.
-                        </p>
-                    </div>
-                    <div class="services-grid">
-                        <div class="service-card">
-                            <div class="service-card__icon">🔥</div>
-                            <h3 class="service-card__title">Furnace Services</h3>
-                            <p class="service-card__description">
-                                Complete furnace repair, maintenance, and replacement services for gas, electric, and oil systems.
-                            </p>
-                            <ul class="service-card__features">
-                                <li>✓ All fuel types supported</li>
-                                <li>✓ Emergency repairs</li>
-                                <li>✓ Annual tune-ups</li>
-                                <li>✓ Filter replacement</li>
-                                <li>✓ Efficiency upgrades</li>
-                            </ul>
-                            <div class="service-card__actions">
-                                <a href="contact.html" class="btn btn--outline">Schedule Service</a>
-                                <span class="service-card__price">Starting at $95</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card">
-                            <div class="service-card__icon">♨️</div>
-                            <h3 class="service-card__title">Heat Pumps</h3>
-                            <p class="service-card__description">
-                                Energy-efficient heat pump installation and service for year-round comfort and lower utility bills.
-                            </p>
-                            <ul class="service-card__features">
-                                <li>✓ Heating and cooling in one</li>
-                                <li>✓ Energy efficient</li>
-                                <li>✓ Environmental friendly</li>
-                                <li>✓ Quiet operation</li>
-                                <li>✓ Long lifespan</li>
-                            </ul>
-                            <div class="service-card__actions">
-                                <a href="contact.html" class="btn btn--outline">Learn More</a>
-                                <span class="service-card__price">From $3,200</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card">
-                            <div class="service-card__icon">🏭</div>
-                            <h3 class="service-card__title">Boiler Services</h3>
-                            <p class="service-card__description">
-                                Professional boiler repair, maintenance, and installation for efficient radiant heating systems.
-                            </p>
-                            <ul class="service-card__features">
-                                <li>✓ Steam and hot water systems</li>
-                                <li>✓ Leak repair</li>
-                                <li>✓ Efficiency testing</li>
-                                <li>✓ Safety inspections</li>
-                                <li>✓ Radiator service</li>
-                            </ul>
-                            <div class="service-card__actions">
-                                <a href="contact.html" class="btn btn--outline">Get Quote</a>
-                                <span class="service-card__price">Starting at $125</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Maintenance Plans -->
-                <div id="maintenance" class="mb-20">
-                    <div class="section-header">
-                        <h2 class="section-title">Maintenance Plans</h2>
-                        <p class="section-description">
-                            Protect your investment with comprehensive maintenance plans designed to prevent breakdowns and extend equipment life.
-                        </p>
-                    </div>
-                    <div class="services-grid">
-                        <div class="service-card">
-                            <div class="service-card__icon">🛡️</div>
-                            <h3 class="service-card__title">Basic Plan</h3>
-                            <p class="service-card__description">
-                                Essential maintenance to keep your system running smoothly with annual tune-ups and priority service.
-                            </p>
-                            <ul class="service-card__features">
-                                <li>✓ Annual tune-up</li>
-                                <li>✓ Filter replacement</li>
-                                <li>✓ Basic cleaning</li>
-                                <li>✓ 10% discount on repairs</li>
-                                <li>✓ Priority scheduling</li>
-                            </ul>
-                            <div class="service-card__actions">
-                                <a href="contact.html" class="btn btn--outline">Sign Up</a>
-                                <span class="service-card__price">$12/month</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card">
-                            <div class="service-card__icon">⭐</div>
-                            <h3 class="service-card__title">Premium Plan</h3>
-                            <p class="service-card__description">
-                                Comprehensive care with bi-annual service, parts discounts, and extended warranty coverage.
-                            </p>
-                            <ul class="service-card__features">
-                                <li>✓ Bi-annual tune-ups</li>
-                                <li>✓ All filters included</li>
-                                <li>✓ 15% discount on repairs</li>
-                                <li>✓ 24/7 emergency priority</li>
-                                <li>✓ Extended warranty</li>
-                            </ul>
-                            <div class="service-card__actions">
-                                <a href="contact.html" class="btn btn--outline">Sign Up</a>
-                                <span class="service-card__price">$19/month</span>
-                            </div>
-                        </div>
-                        
-                        <div class="service-card">
-                            <div class="service-card__icon">🏢</div>
-                            <h3 class="service-card__title">Commercial Plan</h3>
-                            <p class="service-card__description">
-                                Custom maintenance solutions for commercial properties with multiple units and complex systems.
-                            </p>
-                            <ul class="service-card__features">
-                                <li>✓ Quarterly inspections</li>
-                                <li>✓ Custom schedule</li>
-                                <li>✓ Bulk pricing discounts</li>
-                                <li>✓ Dedicated technician</li>
-                                <li>✓ Emergency response</li>
-                            </ul>
-                            <div class="service-card__actions">
-                                <a href="contact.html" class="btn btn--outline">Get Quote</a>
-                                <span class="service-card__price">Custom Pricing</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Sections -->
+      <section class="section">
+        <div class="container">
+          <!-- Air Conditioning Services -->
+          <div id="air-conditioning" class="mb-20">
+            <div class="section-header">
+              <h2 class="section-title">Air Conditioning Services</h2>
+              <p class="section-description">
+                Keep your space cool and comfortable with our expert air
+                conditioning solutions.
+              </p>
             </div>
-        </section>
-        
-        <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-content">
-                    <h2 class="cta-title">Ready to Schedule Your Service?</h2>
-                    <p class="cta-description">
-                        Contact us today for expert HVAC service. Our certified technicians provide reliable solutions with upfront pricing.
-                    </p>
-                    <div class="cta-actions">
-                        <a href="contact.html" class="btn btn--primary btn--large">
-                            Get Free Estimate
-                        </a>
-                        <a href="tel:+15551234567" class="btn btn--white btn--large" id="ctaEmergencyBtn">
-                            <span class="emergency-text">Emergency: (555) 123-4567</span>
-                        </a>
-                    </div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="service-card__icon">❄️</div>
+                <h3 class="service-card__title">AC Repair & Maintenance</h3>
+                <p class="service-card__description">
+                  Fast, reliable air conditioning repairs and preventive
+                  maintenance to keep your system running efficiently.
+                </p>
+                <ul class="service-card__features">
+                  <li>✓ Emergency 24/7 repairs</li>
+                  <li>✓ Refrigerant leak detection</li>
+                  <li>✓ Filter replacement</li>
+                  <li>✓ Duct cleaning</li>
+                  <li>✓ Energy efficiency optimization</li>
+                </ul>
+                <div class="service-card__actions">
+                  <a href="contact.html" class="btn btn--outline">Get Quote</a>
+                  <span class="service-card__price">Starting at $89</span>
                 </div>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card__icon">🏠</div>
+                <h3 class="service-card__title">AC Installation</h3>
+                <p class="service-card__description">
+                  Professional installation of new air conditioning systems with
+                  energy-efficient models and proper sizing.
+                </p>
+                <ul class="service-card__features">
+                  <li>✓ Energy-efficient models</li>
+                  <li>✓ Proper system sizing</li>
+                  <li>✓ Ductwork assessment</li>
+                  <li>✓ Warranty included</li>
+                  <li>✓ Financing available</li>
+                </ul>
+                <div class="service-card__actions">
+                  <a href="contact.html" class="btn btn--outline">Learn More</a>
+                  <span class="service-card__price">From $2,500</span>
+                </div>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card__icon">🔧</div>
+                <h3 class="service-card__title">Ductless Mini-Splits</h3>
+                <p class="service-card__description">
+                  Efficient ductless air conditioning systems perfect for room
+                  additions, older homes, or zone control.
+                </p>
+                <ul class="service-card__features">
+                  <li>✓ Zone temperature control</li>
+                  <li>✓ Energy savings up to 40%</li>
+                  <li>✓ Quiet operation</li>
+                  <li>✓ Easy installation</li>
+                  <li>✓ Heating and cooling</li>
+                </ul>
+                <div class="service-card__actions">
+                  <a href="contact.html" class="btn btn--outline">Get Quote</a>
+                  <span class="service-card__price">From $1,800</span>
+                </div>
+              </div>
             </div>
-        </section>
+          </div>
+
+          <!-- Heating Services -->
+          <div id="heating" class="mb-20">
+            <div class="section-header">
+              <h2 class="section-title">Heating Services</h2>
+              <p class="section-description">
+                Reliable heating solutions to keep your property warm and
+                comfortable all winter long.
+              </p>
+            </div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="service-card__icon">🔥</div>
+                <h3 class="service-card__title">Furnace Services</h3>
+                <p class="service-card__description">
+                  Complete furnace repair, maintenance, and replacement services
+                  for gas, electric, and oil systems.
+                </p>
+                <ul class="service-card__features">
+                  <li>✓ All fuel types supported</li>
+                  <li>✓ Emergency repairs</li>
+                  <li>✓ Annual tune-ups</li>
+                  <li>✓ Filter replacement</li>
+                  <li>✓ Efficiency upgrades</li>
+                </ul>
+                <div class="service-card__actions">
+                  <a href="contact.html" class="btn btn--outline"
+                    >Schedule Service</a
+                  >
+                  <span class="service-card__price">Starting at $95</span>
+                </div>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card__icon">♨️</div>
+                <h3 class="service-card__title">Heat Pumps</h3>
+                <p class="service-card__description">
+                  Energy-efficient heat pump installation and service for
+                  year-round comfort and lower utility bills.
+                </p>
+                <ul class="service-card__features">
+                  <li>✓ Heating and cooling in one</li>
+                  <li>✓ Energy efficient</li>
+                  <li>✓ Environmental friendly</li>
+                  <li>✓ Quiet operation</li>
+                  <li>✓ Long lifespan</li>
+                </ul>
+                <div class="service-card__actions">
+                  <a href="contact.html" class="btn btn--outline">Learn More</a>
+                  <span class="service-card__price">From $3,200</span>
+                </div>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card__icon">🏭</div>
+                <h3 class="service-card__title">Boiler Services</h3>
+                <p class="service-card__description">
+                  Professional boiler repair, maintenance, and installation for
+                  efficient radiant heating systems.
+                </p>
+                <ul class="service-card__features">
+                  <li>✓ Steam and hot water systems</li>
+                  <li>✓ Leak repair</li>
+                  <li>✓ Efficiency testing</li>
+                  <li>✓ Safety inspections</li>
+                  <li>✓ Radiator service</li>
+                </ul>
+                <div class="service-card__actions">
+                  <a href="contact.html" class="btn btn--outline">Get Quote</a>
+                  <span class="service-card__price">Starting at $125</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Maintenance Plans -->
+          <div id="maintenance" class="mb-20">
+            <div class="section-header">
+              <h2 class="section-title">Maintenance Plans</h2>
+              <p class="section-description">
+                Protect your investment with comprehensive maintenance plans
+                designed to prevent breakdowns and extend equipment life.
+              </p>
+            </div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="service-card__icon">🛡️</div>
+                <h3 class="service-card__title">Basic Plan</h3>
+                <p class="service-card__description">
+                  Essential maintenance to keep your system running smoothly
+                  with annual tune-ups and priority service.
+                </p>
+                <ul class="service-card__features">
+                  <li>✓ Annual tune-up</li>
+                  <li>✓ Filter replacement</li>
+                  <li>✓ Basic cleaning</li>
+                  <li>✓ 10% discount on repairs</li>
+                  <li>✓ Priority scheduling</li>
+                </ul>
+                <div class="service-card__actions">
+                  <a href="contact.html" class="btn btn--outline">Sign Up</a>
+                  <span class="service-card__price">$12/month</span>
+                </div>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card__icon">⭐</div>
+                <h3 class="service-card__title">Premium Plan</h3>
+                <p class="service-card__description">
+                  Comprehensive care with bi-annual service, parts discounts,
+                  and extended warranty coverage.
+                </p>
+                <ul class="service-card__features">
+                  <li>✓ Bi-annual tune-ups</li>
+                  <li>✓ All filters included</li>
+                  <li>✓ 15% discount on repairs</li>
+                  <li>✓ 24/7 emergency priority</li>
+                  <li>✓ Extended warranty</li>
+                </ul>
+                <div class="service-card__actions">
+                  <a href="contact.html" class="btn btn--outline">Sign Up</a>
+                  <span class="service-card__price">$19/month</span>
+                </div>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card__icon">🏢</div>
+                <h3 class="service-card__title">Commercial Plan</h3>
+                <p class="service-card__description">
+                  Custom maintenance solutions for commercial properties with
+                  multiple units and complex systems.
+                </p>
+                <ul class="service-card__features">
+                  <li>✓ Quarterly inspections</li>
+                  <li>✓ Custom schedule</li>
+                  <li>✓ Bulk pricing discounts</li>
+                  <li>✓ Dedicated technician</li>
+                  <li>✓ Emergency response</li>
+                </ul>
+                <div class="service-card__actions">
+                  <a href="contact.html" class="btn btn--outline">Get Quote</a>
+                  <span class="service-card__price">Custom Pricing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-content">
+            <h2 class="cta-title">Ready to Schedule Your Service?</h2>
+            <p class="cta-description">
+              Contact us today for expert HVAC service. Our certified
+              technicians provide reliable solutions with upfront pricing.
+            </p>
+            <div class="cta-actions">
+              <a href="contact.html" class="btn btn--primary btn--large">
+                Get Free Estimate
+              </a>
+              <a
+                href="tel:+15551234567"
+                class="btn btn--white btn--large"
+                id="ctaEmergencyBtn"
+              >
+                <span class="emergency-text">Emergency: (555) 123-4567</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-    
+
     <!-- Footer -->
     <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer__content">
-                <!-- Company Information -->
-                <div class="footer__section">
-                    <div class="footer__brand">
-                        <img src="assets/images/logo.svg" alt="Cool Brothers HVAC" class="footer__logo" width="40" height="40">
-                        <span class="footer__company-name">Cool Brothers HVAC</span>
-                    </div>
-                    <p class="footer__description">
-                        Professional heating, cooling, and ventilation services for residential and commercial properties.
-                    </p>
-                </div>
-                
-                <!-- Quick Links -->
-                <div class="footer__section">
-                    <h3 class="footer__title">Quick Links</h3>
-                    <nav class="footer__nav" role="navigation" aria-label="Footer navigation">
-                        <ul class="footer__nav-list">
-                            <li><a href="index.html" class="footer__link">Home</a></li>
-                            <li><a href="services.html" class="footer__link">Services</a></li>
-                            <li><a href="about.html" class="footer__link">About Us</a></li>
-                            <li><a href="contact.html" class="footer__link">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                
-                <!-- Services -->
-                <div class="footer__section">
-                    <h3 class="footer__title">Our Services</h3>
-                    <ul class="footer__nav-list">
-                        <li><a href="#air-conditioning" class="footer__link">Air Conditioning</a></li>
-                        <li><a href="#heating" class="footer__link">Heating Systems</a></li>
-                        <li><a href="#maintenance" class="footer__link">Maintenance Plans</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Information -->
-                <div class="footer__section">
-                    <h3 class="footer__title">Contact Info</h3>
-                    <div class="footer__contact">
-                        <div class="contact-item">
-                            <span class="contact-item__icon">📞</span>
-                            <a href="tel:+15551234567" class="contact-item__text" id="footerPhoneLink">(555) 123-4567</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-item__icon">✉️</span>
-                            <a href="mailto:info@coolbrothershvac.com" class="contact-item__text" id="footerEmailLink">info@coolbrothershvac.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-item__icon">📍</span>
-                            <span class="contact-item__text" id="footerAddress">123 Main St, Springfield, USA</span>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-item__icon">🕒</span>
-                            <span class="contact-item__text">24/7 Emergency Service</span>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer__content">
+          <!-- Company Information -->
+          <div class="footer__section">
+            <div class="footer__brand">
+              <img
+                src="assets/images/logo.svg"
+                alt="Cool Brothers HVAC"
+                class="footer__logo"
+                width="40"
+                height="40"
+              />
+              <span class="footer__company-name">Cool Brothers HVAC</span>
             </div>
-            
-            <!-- Footer Bottom -->
-            <div class="footer__bottom">
-                <div class="footer__copyright">
-                    <p>&copy; 2026 Cool Brothers HVAC. All rights reserved.</p>
-                </div>
-                <div class="footer__legal">
-                    <a href="#" class="footer__legal-link">Privacy Policy</a>
-                    <a href="#" class="footer__legal-link">Terms of Service</a>
-                </div>
+            <p class="footer__description">
+              Professional heating, cooling, and ventilation services for
+              residential and commercial properties.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer__section">
+            <h3 class="footer__title">Quick Links</h3>
+            <nav
+              class="footer__nav"
+              role="navigation"
+              aria-label="Footer navigation"
+            >
+              <ul class="footer__nav-list">
+                <li><a href="index.html" class="footer__link">Home</a></li>
+                <li>
+                  <a href="services.html" class="footer__link">Services</a>
+                </li>
+                <li><a href="about.html" class="footer__link">About Us</a></li>
+                <li><a href="contact.html" class="footer__link">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Services -->
+          <div class="footer__section">
+            <h3 class="footer__title">Our Services</h3>
+            <ul class="footer__nav-list">
+              <li>
+                <a href="#air-conditioning" class="footer__link"
+                  >Air Conditioning</a
+                >
+              </li>
+              <li>
+                <a href="#heating" class="footer__link">Heating Systems</a>
+              </li>
+              <li>
+                <a href="#maintenance" class="footer__link"
+                  >Maintenance Plans</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="footer__section">
+            <h3 class="footer__title">Contact Info</h3>
+            <div class="footer__contact">
+              <div class="contact-item">
+                <span class="contact-item__icon">📞</span>
+                <a
+                  href="tel:+15551234567"
+                  class="contact-item__text"
+                  id="footerPhoneLink"
+                  >(555) 123-4567</a
+                >
+              </div>
+              <div class="contact-item">
+                <span class="contact-item__icon">✉️</span>
+                <a
+                  href="mailto:info@coolbrothershvac.com"
+                  class="contact-item__text"
+                  id="footerEmailLink"
+                  >info@coolbrothershvac.com</a
+                >
+              </div>
+              <div class="contact-item">
+                <span class="contact-item__icon">📍</span>
+                <span class="contact-item__text" id="footerAddress"
+                  >123 Main St, Springfield, USA</span
+                >
+              </div>
+              <div class="contact-item">
+                <span class="contact-item__icon">🕒</span>
+                <span class="contact-item__text">24/7 Emergency Service</span>
+              </div>
             </div>
+          </div>
         </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer__bottom">
+          <div class="footer__copyright">
+            <p>&copy; 2026 Cool Brothers HVAC. All rights reserved.</p>
+          </div>
+          <div class="footer__legal">
+            <a href="#" class="footer__legal-link">Privacy Policy</a>
+            <a href="#" class="footer__legal-link">Terms of Service</a>
+          </div>
+        </div>
+      </div>
     </footer>
-    
+
     <!-- JavaScript files -->
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
