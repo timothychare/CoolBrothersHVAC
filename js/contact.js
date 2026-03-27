@@ -187,6 +187,25 @@ class ContactForm {
             // Simulate API call (replace with actual submission)
             await this.simulateSubmission(data);
 
+            // Analytics identify call with form data
+            if (typeof analytics !== 'undefined') {
+                analytics.identify(data.email, {
+                    email: data.email, 
+                    name: data.name
+                });
+                
+                // Track form submission with user data
+                const user = {
+                    email: data.email, 
+                    name: data.name,
+                    phone: data.phone,
+                    serviceType: data.serviceType || '',
+                    message: data.message || ''
+                };
+                
+                analytics.track('contact form submitted', user);
+            }
+
             // Show success message
             this.showSuccess();
 
